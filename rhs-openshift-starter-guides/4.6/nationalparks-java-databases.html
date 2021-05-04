@@ -353,13 +353,13 @@
     <a class="nav-link" href="mlbparks-debugging.html#enabling_debugging_in_eap_on_openshift">Exercise: Enabling Debugging in EAP on OpenShift</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="mlbparks-debugging.html#port-forwarding_from_pod_to_our_local_machine">Exercise: Port-Forwarding from the pod to our local machine</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="mlbparks-debugging.html#setting_up_remote_debug_in_intellij">Setting up Remote Debug in IntelliJ</a>
+    <a class="nav-link" href="mlbparks-debugging.html#port-forwarding_from_svc_to_our_local_machine">Exercise: Port-Forwarding from a Service to our local machine</a>
   </li>
-</ul>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mlbparks-debugging.html#setting_up_remote_debugging">Attaching a Remote Debugger</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mlbparks-debugging.html#port-forwarding_from_pod_to_our_local_machine">Exercise: Port-Forwarding from the pod to our local machine</a>
   </li>
 </ul>
   </li>
@@ -651,7 +651,7 @@ Make sure to have configured the <strong><code>MongoDB Database Name</code></str
 <p>This change in configuration will trigger a new deployment of the <code>nationalparks</code> application with the environment variables properly injected.</p>
 </div>
 <div class="paragraph">
-<p>Back in the <strong>Topology</strong> view, click and drag with Shift key the <code>mongodb-nationalparks</code> component into the light gray area that denotes the <code>workshop</code> application, so that all three components are contained in it.</p>
+<p>Back in the <strong>Topology</strong> view, if your <code>mongodb-nationalparks</code> component is not already in the light gray area that denotes the <code>workshop</code> application, click and drag the component whilst holding down <kbd>Shift</kbd> to add it to the group with the other two components (as shown below)</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -784,7 +784,7 @@ a browser problem, and the application is working properly.
 </div>
 <div class="listingblock copypaste">
 <div class="content">
-<pre class="highlightjs highlight"><code>https://parksmap-workshop.%CLUSTER_SUBDOMAIN%</code></pre>
+<pre class="highlightjs highlight"><code>http://parksmap-workshop.%CLUSTER_SUBDOMAIN%</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -909,7 +909,7 @@ Endpoints:              10.1.9.8:8080</code></pre>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
-<pre class="highlightjs highlight"><code>https://parksmap-workshop.%CLUSTER_SUBDOMAIN%/</code></pre>
+<pre class="highlightjs highlight"><code>http://parksmap-workshop.%CLUSTER_SUBDOMAIN%/</code></pre>
 </div>
 </div>
 <div class="imageblock">
