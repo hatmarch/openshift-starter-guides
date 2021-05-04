@@ -560,9 +560,17 @@ it by running an <code>oc</code> command:</p>
 <div class="listingblock console-output">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Client Version: 4.6.9
-Server Version: 4.6.4
+Server Version: 4.6.4 <i class="conum" data-value="1"></i><b>(1)</b>
 Kubernetes Version: v1.19.0+9f84db3</code></pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>NOTE: you will only see the <code>Server Version</code> and <code>Kubernetes Version</code> if you are currently connected to a Kubenetes or OpenShift cluster</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>If you see output like the above you can skip to <a href="#connect_to_the_cluster_with_cli">Connect to the OpenShift Cluster from CLI</a>.</p>
@@ -586,6 +594,49 @@ Kubernetes Version: v1.19.0+9f84db3</code></pre>
 </div>
 <div class="content">
 <div class="tab-pane" aria-labelledby="tabset2_mac-osx">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you have <a href="www.brew.sh">HomeBrew</a> installed you can instead install the OpenShift CLI using the <code>brew</code> command.  If you don&#8217;t have homebrew, then follow the manual download and install instructions that follow the inset.
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Download and Install OpenShift CLI on Mac OS X using HomeBrew</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">brew install openshift-cli</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You may also want to enable CLI autocompletion (bash or zsh):</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">source &lt;(oc completion bash)
+source &lt;(oc completion zsh)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To make CLI autocompletion persistent (bash or zsh) by adding a relevant line to your .bashrc or .zshrc:</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc completion bash &gt; oc_bash_completion.sh
+oc completion zsh &gt; oc_zsh_completion.sh
+
+source oc_bash_completion.sh
+source oc_zsh_completion.sh</code></pre>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>From top right menu bar, click to the little white question mark icon, then click to <strong>Command Line Tools</strong>:</p>
 </div>
@@ -642,49 +693,6 @@ The name of the oc packaged archive may vary. Adjust accordingly.
 <div class="listingblock console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export PATH=$PATH:~/OpenShift</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If you have <a href="www.brew.sh">HomeBrew</a> installed you can instead install the OpenShift CLI using brew
-.Download and Install OpenShift CLI on Mac OS X using HomeBrew
-</td>
-</tr>
-</table>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">brew install openshift-cli</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You may also want to enable CLI autocompletion (bash or zsh):</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">source &lt;(oc completion bash)
-source &lt;(oc completion zsh)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>To make CLI autocompletion persistent (bash or zsh) by adding a relevant line to your .bashrc or .zshrc:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc completion bash &gt; oc_bash_completion.sh
-oc completion zsh &gt; oc_zsh_completion.sh
-
-source oc_bash_completion.sh
-source oc_zsh_completion.sh</code></pre>
-</div>
-</div>
 </div>
 </div>
 <div class="paragraph">
