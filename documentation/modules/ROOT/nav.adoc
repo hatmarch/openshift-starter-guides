@@ -2,6 +2,7 @@
 * xref:common-environment.adoc[OCP architecture]
 * xref:common-explore.adoc[Explore OpenShift]
 ** xref:common-explore.adoc#the_web_console[The Web Console]
+*** xref:common-explore.adoc#lab_guide_sync[Synchronize Lab Guide with Cluster]
 ** xref:common-explore.adoc#command_line_interface[Command Line Interface]
 *** xref:common-explore.adoc#download_openshift_cli[Download OpenShift CLI]
 *** xref:common-explore.adoc#connect_to_the_cluster_with_cli[Connect to the OpenShift Cluster from CLI]
