@@ -1,4 +1,12 @@
 <header class="header">
+  <style>
+    /* override master stylesheet properties for this partial here */
+
+    .navbar-item {
+      flex: unset;
+    }
+    
+  </style>
 
   <nav class="navbar">
     <div class="navbar-brand">
@@ -25,11 +33,12 @@
           </form>
         </div>
 
-        <div class="navbar-item" id="navbar-form-filled" style="display: none;">
+        <div class="navbar-item" id="navbar-form-filled" style="display: none; text-align: right;">
           <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">|</span>
           <span class="navbar-text" id="cluster_subdomain"></span>
-          <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">&nbsp;<i onclick="recycle();"
-              style="color: green;" class="fa fa-recycle" aria-hidden="true"></i></span>
+          <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">
+            <i onclick="recycle();" style="color: green;" class="fa fa-recycle" aria-hidden="true"></i>
+          </span>
 
         </div>
       </div>
