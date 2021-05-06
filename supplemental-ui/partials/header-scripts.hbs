@@ -1,0 +1,37 @@
+{{!-- Add header scripts here --}}
+
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const clusterName = urlParams.get('CLUSTER_SUBDOMAIN');
+      if (clusterName) {
+        showCluster(clusterName);
+      }
+      else {
+        showForm();
+      }
+    });
+
+    function showCluster(clusterName) {
+      document.getElementById('navbar-form-empty').style.display = "none";
+      document.getElementById('navbar-form-filled').style.display = "flex";
+      document.getElementById('cluster_subdomain').textContent = clusterName;
+    }
+
+    function showForm(clusterName) {
+      document.getElementById('navbar-form-empty').style.display = "flex";
+      document.getElementById('navbar-form-filled').style.display = "none";
+    }
+
+    function gowithcluster() {
+      elInput = document.getElementById('clusterfield');
+      window.location.search = ('&CLUSTER_SUBDOMAIN=' + elInput.value);
+    }
+
+    function recycle() {
+      const urlParams = new URLSearchParams(window.location.search);
+      urlParams.delete('CLUSTER_SUBDOMAIN');
+      window.location.search = urlParams.toString();
+    }
+
+  </script>
