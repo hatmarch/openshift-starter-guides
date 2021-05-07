@@ -9,8 +9,8 @@ cleanup() {
 # make sure not to leave files around in the source tree
 trap 'cleanup' EXIT SIGTERM SIGINT ERR
 
-declare USER="${1:-lab-admin}"
-declare PASSWORD="${2:-lab-admin}"
+declare USER="${1:-openlab-admin}"
+declare PASSWORD="${2:-openlab-admin}"
 
 if [[ -z "${USER}" ]]; then
     echo "Must specify a user"
