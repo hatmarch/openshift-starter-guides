@@ -2,13 +2,6 @@
 
 set -Eeuo pipefail
 
-cleanup() {
-    echo "Done."
-}
-
-# make sure not to leave files around in the source tree
-trap 'cleanup' EXIT SIGTERM SIGINT ERR
-
 declare USER="${1:-openlabs-admin}"
 
 if [[ -z "${USER}" ]]; then
