@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 
 cleanup() {
-
+    echo "Done."
 }
 
 # make sure not to leave files around in the source tree
