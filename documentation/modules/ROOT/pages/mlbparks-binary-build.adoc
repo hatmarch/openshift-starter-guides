@@ -38,9 +38,6 @@ The first step is to clone the MLB source code from GitHub to your workshop envi
 git clone https://github.com/openshift-roadshow/mlbparks.git
 ----
 
-NOTE: We are using Intellij here in the guide for screenshots but this should work regardless of your tool chain. JBoss
-Developer Studio and JBoss Developer Tools have built in functionality that makes this close to seamless right from the IDE.
-
 [#setup_the_build_of_the_war_file]
 === Setup the Build of the WAR file
 If you have Maven all set up on your machine, then you can `cd` into the `mlbparks` directory and run `mvn package`
@@ -55,7 +52,7 @@ If you don't have Maven on your machine but you are able to run docker, you can 
 [.console-input]
 [source,bash,subs="+macros,+attributes"]
 ----
-docker run -it --rm --name maven_builder -v ~/.kube:/home/jboss/.kube -v $(pwd):/workspaces -w /workspaces registry.access.redhat.com/ubi8/openjdk-11 /bin/bash
+docker run -it -u root --rm --name maven_builder -v ~/.kube:/home/jboss/.kube -v $(pwd):/workspaces -w /workspaces quay.io/mhildenb/openlabs-console:0.1 /bin/bash
 ----
 +
 . Next, run this command (in the container) to locally install the latest version of `oc` on the container
