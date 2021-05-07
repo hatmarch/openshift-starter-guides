@@ -28,7 +28,7 @@ touch htpasswd
 htpasswd -Bb htpasswd "${USER}" "${PASSWORD}"
 
 echo "Creating htpasswd secret from the htpasswd file in the openshift-config namespace"
-oc --user=admin create secret generic htpasswd --from-file=htpasswd -n openshift-config
+oc create secret generic htpasswd --from-file=htpasswd -n openshift-config
 
 cat <<EOF | oc apply -n openshift-operators -f - 
 apiVersion: config.openshift.io/v1
