@@ -1,0 +1,22 @@
+You might already have the OpenShift CLI available on your environment. You can verify it by running an `oc` command:
+
+[.console-input]
+[source,bash,subs="+attributes,macros+"]
+----
+oc version
+----
+
+You should see the following (or something similar):
+
+[.console-output]
+[source,bash]
+----
+Client Version: 4.6.9
+Server Version: 4.6.4 <.>
+Kubernetes Version: v1.19.0+9f84db3
+----
+<.> NOTE: you will only see the `Server Version` and `Kubernetes Version` if you are currently connected to a Kubenetes or OpenShift cluster
+
+If you see output like the above you can skip to <<Connect to the OpenShift Cluster from CLI,Connect to the OpenShift Cluster from CLI>>.  
+
+However, if the `oc` command doesn't exist or you have an older version of the OpenShift CLI (e.g. < `4.4.x`), continue following the instructions below.

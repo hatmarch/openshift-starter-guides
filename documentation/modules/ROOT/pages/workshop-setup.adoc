@@ -1,58 +1,21 @@
-= Explore OpenShift
-:navtitle: Explore OpenShift
+= Setup OpenShift for Workshop
+:navtitle: Setup OpenShift for Workshop
 
 [#the_web_console]
-== The Web Console
+== Access OpenShift Web Conole
 
-OpenShift ships with a web-based console that will allow users to
-perform various tasks via a browser.
+OpenShift ships with a web-based console that will allow users to perform various tasks via a browser.
 
 [tabs, subs="attributes+,+macros"]
 ====
 IBM Open Labs::
 +
 --
-If you have an IBM Cloud account, you can use the "Bring Your Own Application" Lab of IBM's Open Labs to complete this workshop.
+You can access your OpenShift cluster from the link:https://developer.ibm.com/openlabs/guide/openshift/course/bring-your-own-app-lab/01.01[IBM Open Labs Dashboard,window=_blank]
 
-NOTE: This section assumes you have an IBM Cloud Account.  If you do not have an IBM Cloud account, instructions for obtaining a _free_ IBM Cloud account (no credit card required) can be found link:https://www.ibm.com/au-en/cloud/free[here].
-
-. Navigate to the link:https://developer.ibm.com/openlabs/openshift[IBM Open Labs page for OpenShift]
-. Scroll down and click the `Launch Lab` button on the "Bring Your Own Application" Lab from the listing of labs
-+
-image::open-labs-starter-page.png[IBM Open Labs Starter Page]
-+
-. If you are not already logged in, you may be prompted to log in with your IBM Cloud account (or register for a new one)
-. If you have successfully signed in and authenticated, you will see a screen like the following.  (it will take a minute or two to provision the lab)
-+
-image::provisioning.png[Provisioning Lab]
-+
-. Once the lab has been provisioned, you will be redirected to the IBM Open Labs start screen, only this time the labs should show a green tick indicating that the cluster has been provisioned
-+
-image::provisioned-lab.png[Provisioned Lab]
-+
-.IMPORTANT: Increase Cluster Lifetime
-****
-_Open Labs Clusters only last for *1 hour* by default._  You will likely need *2-3 hours* to complete this lab in one sitting.  Thus, it's important you follow the following instructions *up to 3* times to increase the lifetime of your cluster to a maximum of 4 hours
-
-. Click on the increase time icon
-+
-image::provisioned-lab.png[Increase lifetime]
-+
-. When the dialog appears, click `Extend` indicating that you'd like to extend the lifetime of the cluster by 1 hour
-** NOTE: 1 hour is the maximum amount of time that can be entered in the dialog
-+
-image::extend-lifetime-dialog.png[Increase Lifetime Dialog]
-. You will get a prompt that the lab duration is being extended.  If successful you will see a popup on the upper right of the screen indicating that lab time has been successfully extended
-+
-image::lab-extended-success.png[Lab Lifetime Increase Success]
-+
-. *Repeat* this process up to 2 more times to increase the lifetime of the lab to a maximum of 4 hours 
-****
-+
-.  Next, click on the `Launch Lab` button again.  This time you will be brought to the Bring Your Own Application to Red Hat OpenShift on IBM Cloud Dashboard.  
-+
+.IBM Open Labs Dashboard: Introduction
 image::lab-dashboard.png[Lab Dashboard]
-+
+
 . From the Lab Dashboard, click on the `Quick Links and Common Commands` from the menu on the left and then click on the link for the OpenShift console as indicated in the following image
 +
 .Link to OpenShift Console
@@ -106,11 +69,11 @@ On the login screen, enter the following credentials:
 ====
 
 The first time you access the web console, you will most likely be in the Administrator perspective. If you are also the Cluster Administrator, you will be presented with an overview of the whole Cluster status:
-
+.OpenShift Web Console
 image::prerequisites_overview.png[Web Console Overview]
 
 [#lab_guide_sync]
-=== Synchronize Lab Guide with Cluster
+== Synchronize Lab Guide with Cluster
 
 [IMPORTANT]
 ====
@@ -123,10 +86,10 @@ Then this means that your guide has not been "synchronized" with your OpenShift 
 
 image::subdomain-filled.png[role=right]
 
-Otherwise, if you header looks something like the following, you can skip to <<Command Line Interface,Setting up Command Line Interfaces>>
+Otherwise, if you header looks something like the following, you can skip to <<Setup Command Line Interface,Setting up Command Line Interface>>
 ====
 
-. While navigated to the OpenShift Console, go to the URL window of your browser.
+. While navigated to the OpenShift Web Console, go to the URL window of your browser.
 . Select and copy (e.g. kbd:[CMD + c] on a Mac) everything after `https://console-openshift-console.` and before the first `/`.  This is the "cluster subdomain".  For example:
 +
 .The *cluster subdomain* (or `% CLUSTER_SUBDOMAIN%`)
@@ -148,7 +111,7 @@ TIP: If you see `% CLUSTER_SUBDOMAIN%` anywhere in your lab, it likely means the
 
 
 [#command_line_interface]
-== Command Line Interface
+== Setup Command Line Interface
 
 OpenShift ships with a feature rich web console as well as command line tools
 to provide users with a nice interface to work with applications deployed to the
@@ -159,36 +122,36 @@ programming language and is available for the following operating systems:
 - Mac OS X
 - Linux
 
-You might already have the OpenShift CLI available on your environment. You can verify
-it by running an `oc` command:
+Depending on the workshop you are doing, you may already have the CLI setup for you.  Choose the tab most appropriate to your situation and follow the instructions therein.
 
-[.console-input]
-[source,bash,subs="+attributes,macros+"]
-----
-oc version
-----
-
-You should see the following (or something similar):
-
-[.console-output]
-[source,bash]
-----
-Client Version: 4.6.9
-Server Version: 4.6.4 <.>
-Kubernetes Version: v1.19.0+9f84db3
-----
-<.> NOTE: you will only see the `Server Version` and `Kubernetes Version` if you are currently connected to a Kubenetes or OpenShift cluster
-
-If you see output like the above you can skip to <<Connect to the OpenShift Cluster from CLI,Connect to the OpenShift Cluster from CLI>>.  
-
-However, if the `oc` command doesn't exist or you have an older version of the OpenShift CLI (e.g. < `4.4.x`), select the tab appropriate to your OS and follow the instructions to install or update the OpenShift CLI. 
 
 [tabs]
 ====
+IBM Open Labs::
++
+--
+The Open Labs based workshop has an integrated cloud terminal that you can use for running all the CLI based commands in the lab.  
+
+. Locate the integrated cloud terminal from the link:https://developer.ibm.com/openlabs/guide/openshift/course/bring-your-own-app-lab/01.01[IBM Open Labs Dashboard,window=_blank]
++
+.IBM Open Labs Cloud Terminal
+image::cloud-terminal.png[]
++
+. From within the cloud terminal, we're going to run a container that has all the commands necessary for this lab pre-installed.  From within the cloud terminal, run the following command:
++
+[.console-input]
+[source,bash,subs="+macros,+attributes"]
+----
+docker run -it -u root --rm --name labs_console -v ~/.kube:/home/jboss/.kube -v $(pwd):/workspace -w /workspace quay.io/mhildenb/openlabs-console:0.1 /bin/bash
+----
+
+--
 Mac OSX::
 +
 --
-NOTE: If you have link:www.brew.sh[HomeBrew] installed you can instead install the OpenShift CLI using the `brew` command.  If you don't have homebrew, then follow the manual download and install instructions that follow the inset.
+include::partial$cli_instructions_check.adoc[]
+
+NOTE: If you have link:www.brew.sh[HomeBrew,window=_blank] installed you can instead install the OpenShift CLI using the `brew` command.  If you don't have homebrew, then follow the manual download and install instructions that follow the inset.
 
 .Download and Install OpenShift CLI on Mac OS X using HomeBrew
 ****
@@ -230,6 +193,8 @@ include::partial$cli_test_oc.adoc[]
 Linux::
 +
 --
+include::partial$cli_instructions_check.adoc[]
+
 include::partial$cli_instructions_common.adoc[]
 
 :os-lower: linux
@@ -240,6 +205,8 @@ include::partial$cli_test_oc.adoc[]
 Windows::
 +
 --
+include::partial$cli_instructions_check.adoc[]
+
 include::partial$cli_instructions_common.adoc[]
 
 The CLI for Windows is provided as a zip archive. Download and unzip the archive with a ZIP program and move the oc binary to a directory on your PATH. To check your PATH, open the Command Prompt and run:
@@ -257,9 +224,9 @@ include::partial$cli_test_oc.adoc[]
 ====
 
 [#connect_to_the_cluster_with_cli]
-=== Connect to the OpenShift Cluster from CLI
+== Connect to the OpenShift Cluster from CLI
 
-Once your `oc` client is setup on your Workstation, you can connect to cluster and start working also with OpenShift CLI.
+Once your `oc` client is setup on your Workstation (or Web Client), you can now connect to your cluster using the OpenShift CLI.
 
 From Web Console overview, go to top-right menu bar and click to the dropdown menu containing your username, then click *Copy Login Command*:
 
@@ -285,7 +252,7 @@ Using project "default".
 ----
 
 [#working_with_proxies]
-==== Working with proxies
+=== Working with proxies
 It might happen that you're behind a corporate proxy to access the internet. In this case, you'll need to set
 some additional environment variables for the oc command line to work.  Select the tab appropriate to your OS below.
 

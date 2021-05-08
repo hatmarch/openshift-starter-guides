@@ -38,11 +38,12 @@ In short, in order to create a pipeline, one does the following:
 
 For further details on pipeline concepts, refer to the https://github.com/tektoncd/pipeline/tree/master/docs#learn-more[Tekton documentation] that provides an excellent guide for understanding various parameters and attributes available for defining pipelines.
 
+include::partial$pipelines_operator_install.adoc[]
 
 [#create_your_pipeline]
 == Create Your Pipeline
 
-NOTE: Ensure you met all xref:prerequisites.adoc[Prerequisites] before proceeding. xref:prerequisites.adoc#openshift_pipelines[OpenShift Pipelines] installed in your cluster and a xref:prerequisites.adoc#github_account[GitHub account] are required.
+NOTE: Ensure you met all xref:prerequisites.adoc[Prerequisites] before proceeding. For instance, a xref:prerequisites.adoc#github_account[GitHub account] is required for this section
 
 As pipelines provide the ability to promote applications between different stages of the delivery cycle, Tekton, which is our Continuous Integration server that will execute our pipelines, will be deployed on a project with a Continuous Integration role. Pipelines executed in this project will have permissions to interact with all the projects modeling the different stages of our delivery cycle. 
 
@@ -52,6 +53,15 @@ Let's create now a Tekton pipeline for Nationalparks backend, select your OpenSh
 
 [tabs, subs="attributes+,+macros"]
 ====
+IBM Open Labs::
++
+--
+[.console-input]
+[source,bash,subs="+attributes"]
+----
+oc create -f https://raw.githubusercontent.com/openshift-roadshow/nationalparks/master/pipeline/nationalparks-pipeline-all-vfs-new.yaml -n {project-namespace}
+----
+--
 ROKS::
 +
 --

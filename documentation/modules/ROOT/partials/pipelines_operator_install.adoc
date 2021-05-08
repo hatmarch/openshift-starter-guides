@@ -1,0 +1,26 @@
+[#openshift_pipelines]
+== Adding OpenShift Pipelines Support to the Cluster
+
+Before we can use the Tekton Custom Resources, we need to install them onto our Cluster.  One way to do this is via an *Operator*
+
+OpenShift provides a marketplace of installable software packaged as link:https://kubernetes.io/docs/concepts/extend-kubernetes/operator/[Kubernetes Operators] called https://operatorhub.io[OperatorHub] .
+You can add Kubernetes-native CI/CD to your cluster installing OpenShift Pipelines directly from OperatorHub embedded marketplace inside OpenShift.
+
+[#install_from_operatorhub]
+=== Install OpenShift Pipelines from OperatorHub
+
+From the left-side menu under Administrator perspective, go to *Operators*-> *OperatorHub*. In the search box, search for _pipelines_, then click to *OpenShift Pipelines Operator*:
+
+image::prerequisites_operatorhub.png[OperatorHub]
+
+From the description view, click *Install* to review all installation settings.
+
+image::prerequisites_operatorhub_install_pipelines.png[Install Pipelines]
+
+Ensure *Update Channel* is set to *ocp-4.6* , and click *Install* to start installing the Operator.
+
+image::prerequisites_operatorhub_install_operator.png[Install Operator]
+
+After few seconds, the installation should be completed with success and you can verify it looking at *Status* column, check if the status is *Succeeded*.
+
+image::prerequisites_operatorhub_pipelines_installed.png[Pipelines Installed]

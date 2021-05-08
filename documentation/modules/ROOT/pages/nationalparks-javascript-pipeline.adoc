@@ -38,6 +38,8 @@ In short, in order to create a pipeline, one does the following:
 
 For further details on pipeline concepts, refer to the https://github.com/tektoncd/pipeline/tree/master/docs#learn-more[Tekton documentation] that provides an excellent guide for understanding various parameters and attributes available for defining pipelines.
 
+include::partial$pipelines_operator_install.adoc[]
+
 [#explore_pipeline]
 == Explore your Pipeline
 
