@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Command Line Interface :: OpenShift Starter Guides(Dev Mode)</title>
-    <link rel="canonical" href="http://hatmarch.github.io/openshift-starter-guides/rhs-openshift-starter-guides/4.6/common-cli.html">
+    <title>Setup OpenShift for Workshop :: OpenShift Starter Guides(Dev Mode)</title>
+    <link rel="canonical" href="http://hatmarch.github.io/openshift-starter-guides/rhs-openshift-starter-guides/4.6/workshop-setup.html">
+    <link rel="prev" href="prerequisites.html">
+    <link rel="next" href="projects.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
@@ -139,25 +141,25 @@
   </li>
 </ul>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="workshop-setup.html">Setup OpenShift for Workshop</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="workshop-setup.html#the_web_console">Access OpenShift Web Console</a>
+    <a class="nav-link" href="#the_web_console">Access OpenShift Web Console</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="workshop-setup.html#lab_guide_sync">Synchronize Lab Guide with Cluster</a>
+    <a class="nav-link" href="#lab_guide_sync">Synchronize Lab Guide with Cluster</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="workshop-setup.html#command_line_interface">Setup Command Line Interface</a>
+    <a class="nav-link" href="#command_line_interface">Setup Command Line Interface</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="workshop-setup.html#connect_to_the_cluster_with_cli">Connect to the OpenShift Cluster from CLI</a>
+    <a class="nav-link" href="#connect_to_the_cluster_with_cli">Connect to the OpenShift Cluster from CLI</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="workshop-setup.html#working_with_proxies">Working with proxies</a>
+    <a class="nav-link" href="#working_with_proxies">Working with proxies</a>
   </li>
 </ul>
   </li>
@@ -476,15 +478,221 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">OpenShift Starter Guides</a></li>
-    <li><a href="common-cli.html">Command Line Interface</a></li>
+    <li><a href="workshop-setup.html">Setup OpenShift for Workshop</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="file:///workspaces/openshift-starter-guides/documentation/modules/ROOT/pages/common-cli.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="file:///workspaces/openshift-starter-guides/documentation/modules/ROOT/pages/workshop-setup.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <article class="doc" style="max-width: unset;">
-<h1 class="page">Command Line Interface</h1>
-<div id="preamble">
+<h1 class="page">Setup OpenShift for Workshop</h1>
+<div class="sect1">
+<h2 id="the_web_console"><a class="anchor" href="#the_web_console"></a>Access OpenShift Web Conole</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenShift ships with a web-based console that will allow users to perform various tasks via a browser.</p>
+</div>
+<div class="tabset is-loading">
+<div class="ulist tabs">
+<ul>
+<li>
+<p><a id="tabset1_ibm-open-labs"></a>IBM Open Labs</p>
+</li>
+<li>
+<p><a id="tabset1_roks"></a>ROKS</p>
+</li>
+<li>
+<p><a id="tabset1_others"></a>Others</p>
+</li>
+</ul>
+</div>
+<div class="content">
+<div class="tab-pane" aria-labelledby="tabset1_ibm-open-labs">
+<div class="paragraph">
+<p>You can access your OpenShift cluster from the <a href="https://developer.ibm.com/openlabs/guide/openshift/course/bring-your-own-app-lab/01.01" target="_blank" rel="noopener">IBM Open Labs Dashboard</a></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/lab-dashboard.png" alt="Lab Dashboard">
+</div>
+<div class="title">Figure 1. IBM Open Labs Dashboard: Introduction</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From the Lab Dashboard, click on the <code>Quick Links and Common Commands</code> from the menu on the left and then click on the link for the OpenShift console as indicated in the following image</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/dashboard-to-cluster.png" alt="Dashboard Link to Cluster">
+</div>
+<div class="title">Figure 2. Link to OpenShift Console</div>
+</div>
+</li>
+<li>
+<p>Once you&#8217;ve clicked the link you should be presented with the Administrator View of the OpenShift Console (as follows)</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="tab-pane" aria-labelledby="tabset1_roks">
+<div class="paragraph">
+<p>Login to IBM Cloud, copy this link and open in your browser:</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlightjs highlight"><code>%LOGIN%</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Enter following credentials:</p>
+</div>
+<div class="paragraph">
+<p><strong>Username</strong>:</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlightjs highlight"><code>%USERNAME%</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Password</strong>:</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlightjs highlight"><code>%PASSWORD%</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Click <strong>Sign In</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/roks-login1.png" alt="ROKS Login">
+</div>
+</div>
+<div class="paragraph">
+<p>After you successfully logged in, from right side pane, click <strong>OpenShift web console</strong> to access your OpenShift Cluster Dashboard:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/roks-login4.png" alt="ROKS Open-shift web console">
+</div>
+</div>
+</div>
+<div class="tab-pane" aria-labelledby="tabset1_others">
+<div class="paragraph">
+<p>To get a feel for how the web console works, click on this <a href="https://console-openshift-console.%CLUSTER_SUBDOMAIN%" class="params-link" target="_blank" rel="noopener">Web Console</a> link.</p>
+</div>
+<div class="paragraph">
+<p>On the login screen, enter the following credentials:</p>
+</div>
+<div class="paragraph">
+<p><strong>Username</strong>:</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlightjs highlight"><code>%USERNAME%</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Password</strong>:</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlightjs highlight"><code>%PASSWORD%</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The first time you access the web console, you will most likely be in the Administrator perspective. If you are also the Cluster Administrator, you will be presented with an overview of the whole Cluster status:
+.OpenShift Web Console
+image::prerequisites_overview.png[Web Console Overview]</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="lab_guide_sync"><a class="anchor" href="#lab_guide_sync"></a>Synchronize Lab Guide with Cluster</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you see the following at the top of your lab guide:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/enter-subdomain.png" alt="enter subdomain">
+</div>
+</div>
+<div class="paragraph">
+<p>Then this means that your guide has not been "synchronized" with your OpenShift Cluster.  In that case, please follow the instructions below to connect the two.</p>
+</div>
+<div class="imageblock right">
+<div class="content">
+<img src="_images/subdomain-filled.png" alt="subdomain filled">
+</div>
+</div>
+<div class="paragraph">
+<p>Otherwise, if you header looks something like the following, you can skip to <a href="#command_line_interface">Setting up Command Line Interface</a></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>While navigated to the OpenShift Web Console, go to the URL window of your browser.</p>
+</li>
+<li>
+<p>Select and copy (e.g. <span class="keyseq"><kbd>CMD</kbd>+<kbd>c</kbd></span> on a Mac) everything after <code><a href="https://console-openshift-console" class="bare">https://console-openshift-console</a>.</code> and before the first <code>/</code>.  This is the "cluster subdomain".  For example:</p>
+<div class="listingblock console-output">
+<div class="title">The <strong>cluster subdomain</strong> (or <code>% CLUSTER_SUBDOMAIN%</code>)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dte-ocp46-m8lu7c-915b3b336cabec458a7c7ec2aa7c625f-0000.us-east.containers.appdomain.cloud</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Paste the <strong>cluster subdomain</strong> into the text entry box in the header:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/pasted-cluster-subdomain.png" alt="pasted cluster subdomain">
+</div>
+</div>
+</li>
+<li>
+<p>If it looks correct, hit <kbd>Return</kbd> to refresh the lab guide.  The cluster subdomain should then represented in the header something like this:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/subdomain-filled-2.png" alt="subdomain filled 2">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you see <code>% CLUSTER_SUBDOMAIN%</code> anywhere in your lab, it likely means the subdomain needs to be reposted to the lab guide.  If this happens, just follow the process above again.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command_line_interface"><a class="anchor" href="#command_line_interface"></a>Setup Command Line Interface</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>OpenShift ships with a feature rich web console as well as command line tools
@@ -506,8 +714,55 @@ programming language and is available for the following operating systems:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>You might already have the OpenShift CLI available on your environment. You can verify
-it by running an <code>oc</code> command:</p>
+<p>Depending on the workshop you are doing, you may already have the CLI setup for you.  Choose the tab most appropriate to your situation and follow the instructions therein.</p>
+</div>
+<div class="tabset is-loading">
+<div class="ulist tabs">
+<ul>
+<li>
+<p><a id="tabset2_ibm-open-labs"></a>IBM Open Labs</p>
+</li>
+<li>
+<p><a id="tabset2_mac-osx"></a>Mac OSX</p>
+</li>
+<li>
+<p><a id="tabset2_linux"></a>Linux</p>
+</li>
+<li>
+<p><a id="tabset2_windows"></a>Windows</p>
+</li>
+</ul>
+</div>
+<div class="content">
+<div class="tab-pane" aria-labelledby="tabset2_ibm-open-labs">
+<div class="paragraph">
+<p>The Open Labs based workshop has an integrated cloud terminal that you can use for running all the CLI based commands in the lab.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Locate the integrated cloud terminal from the <a href="https://developer.ibm.com/openlabs/guide/openshift/course/bring-your-own-app-lab/01.01" target="_blank" rel="noopener">IBM Open Labs Dashboard</a></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/cloud-terminal.png" alt="cloud terminal">
+</div>
+<div class="title">Figure 3. IBM Open Labs Cloud Terminal</div>
+</div>
+</li>
+<li>
+<p>From within the cloud terminal, we&#8217;re going to run a container that has all the commands necessary for this lab pre-installed.  From within the cloud terminal, run the following command:</p>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker run -it -u root --rm --name labs_console -v ~/.kube:/home/jboss/.kube -v $(pwd):/workspace -w /workspace quay.io/mhildenb/openlabs-console:0.1 /bin/bash</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="tab-pane" aria-labelledby="tabset2_mac-osx">
+<div class="paragraph">
+<p>You might already have the OpenShift CLI available on your environment. You can verify it by running an <code>oc</code> command:</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -519,17 +774,69 @@ it by running an <code>oc</code> command:</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Client Version: openshift-clients-4.5.0-202006231303.p0-9-ge40bd2dd9
-Server Version: 4.5.11
-Kubernetes Version: v1.18.3+b0068a8</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Client Version: 4.6.9
+Server Version: 4.6.4 <i class="conum" data-value="1"></i><b>(1)</b>
+Kubernetes Version: v1.19.0+9f84db3</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>NOTE: you will only see the <code>Server Version</code> and <code>Kubernetes Version</code> if you are currently connected to a Kubenetes or OpenShift cluster</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you see output like the above you can skip to <a href="#connect_to_the_cluster_with_cli">Connect to the OpenShift Cluster from CLI</a>.</p>
+</div>
+<div class="paragraph">
+<p>However, if the <code>oc</code> command doesn&#8217;t exist or you have an older version of the OpenShift CLI (e.g. &lt; <code>4.4.x</code>), continue following the instructions below.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you have <a href="www.brew.sh" target="_blank" rel="noopener">HomeBrew</a> installed you can instead install the OpenShift CLI using the <code>brew</code> command.  If you don&#8217;t have homebrew, then follow the manual download and install instructions that follow the inset.
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Download and Install OpenShift CLI on Mac OS X using HomeBrew</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">brew install openshift-cli</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If the <code>oc</code> doesn&#8217;t exist or you have an older version of the OpenShift CLI, follow
-the next sections to install or update the OpenShift CLI. Otherwise, skip to the
-next lab.</p>
+<p>You may also want to enable CLI autocompletion (bash or zsh):</p>
 </div>
-<div id="download_openshift_cli" class="paragraph">
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">source &lt;(oc completion bash)
+source &lt;(oc completion zsh)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To make CLI autocompletion persistent (bash or zsh) by adding a relevant line to your .bashrc or .zshrc:</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc completion bash &gt; oc_bash_completion.sh
+oc completion zsh &gt; oc_zsh_completion.sh
+
+source oc_bash_completion.sh
+source oc_zsh_completion.sh</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
 <p>From top right menu bar, click to the little white question mark icon, then click to <strong>Command Line Tools</strong>:</p>
 </div>
 <div class="imageblock">
@@ -538,22 +845,130 @@ next lab.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Scroll down to <strong>oc - OpenShift Command Line Interface (CLI)</strong></p>
+<p>Scroll down to <code>oc - OpenShift Command Line Interface (CLI)</code> and click on the link appropriate to your OS</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="_images/prerequisites_cli_binaries.png" alt="CLI Binaries">
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="download_and_install_openshift_cli_on_linux"><a class="anchor" href="#download_and_install_openshift_cli_on_linux"></a>Download and Install OpenShift CLI on Linux</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Once the file has been downloaded, you will need to extract the contents as it
-is a compressed archive. I would suggest saving this file to the following
-directories:</p>
+is a compressed archive. It is recommended that this file is saved to the following
+directory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">~/OpenShift</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Open up a terminal window and change to the directory where you downloaded the
+file.  Once you are in the directory, enter in the following command:</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+The name of the oc packaged archive may vary. Adjust accordingly.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">tar zxvf oc-macosx.tar.gz</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The tar.gz file name needs to be replaced by the entire name that was downloaded in the previous step.</p>
+</div>
+<div class="paragraph">
+<p>Now you can add the OpenShift CLI tools to your PATH.</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export PATH=$PATH:~/OpenShift</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>At this point, we should have the oc tool available for use. Let&#8217;s test this
+out by printing the version of the <code>oc</code> command:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc version</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see the following (or something similar):</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Client Version: 4.6.9</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you get an error message, you may not have not updated your path correctly. If after checking your <code>PATH</code> you
+still cannot get the <code>oc</code> command to work, contact your lab instructor for assistence.</p>
+</div>
+</div>
+<div class="tab-pane" aria-labelledby="tabset2_linux">
+<div class="paragraph">
+<p>You might already have the OpenShift CLI available on your environment. You can verify it by running an <code>oc</code> command:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc version</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see the following (or something similar):</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Client Version: 4.6.9
+Server Version: 4.6.4 <i class="conum" data-value="1"></i><b>(1)</b>
+Kubernetes Version: v1.19.0+9f84db3</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>NOTE: you will only see the <code>Server Version</code> and <code>Kubernetes Version</code> if you are currently connected to a Kubenetes or OpenShift cluster</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you see output like the above you can skip to <a href="#connect_to_the_cluster_with_cli">Connect to the OpenShift Cluster from CLI</a>.</p>
+</div>
+<div class="paragraph">
+<p>However, if the <code>oc</code> command doesn&#8217;t exist or you have an older version of the OpenShift CLI (e.g. &lt; <code>4.4.x</code>), continue following the instructions below.</p>
+</div>
+<div class="paragraph">
+<p>From top right menu bar, click to the little white question mark icon, then click to <strong>Command Line Tools</strong>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/prerequisites_cli_links.png" alt="Download CLI">
+</div>
+</div>
+<div class="paragraph">
+<p>Scroll down to <code>oc - OpenShift Command Line Interface (CLI)</code> and click on the link appropriate to your OS</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/prerequisites_cli_binaries.png" alt="CLI Binaries">
+</div>
+</div>
+<div class="paragraph">
+<p>Once the file has been downloaded, you will need to extract the contents as it
+is a compressed archive. It is recommended that this file is saved to the following
+directory:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -589,12 +1004,12 @@ The name of the oc packaged archive may vary. Adjust accordingly.
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export PATH=$PATH:~/openShift</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export PATH=$PATH:~/OpenShift</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>At this point, we should have the oc tool available for use. Let&#8217;s test this
-out by printing the version of the oc command:</p>
+out by printing the version of the <code>oc</code> command:</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -606,86 +1021,63 @@ out by printing the version of the oc command:</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Client Version: openshift-clients-4.5.0-202006231303.p0-9-ge40bd2dd9</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Client Version: 4.6.9</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If you get an error message, you have not updated your path correctly. If you
-need help, contact your lab instructor for assistence.</p>
+<p>If you get an error message, you may not have not updated your path correctly. If after checking your <code>PATH</code> you
+still cannot get the <code>oc</code> command to work, contact your lab instructor for assistence.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="download_and_install_openshift_cli_on_mac"><a class="anchor" href="#download_and_install_openshift_cli_on_mac"></a>Download and Install OpenShift CLI on Mac</h2>
-<div class="sectionbody">
+<div class="tab-pane" aria-labelledby="tabset2_windows">
 <div class="paragraph">
-<p>Once the file has been downloaded, you will need to extract the contents as it
-is a compressed archive. I would suggest saving this file to the following
-directories:</p>
+<p>You might already have the OpenShift CLI available on your environment. You can verify it by running an <code>oc</code> command:</p>
 </div>
-<div class="listingblock">
+<div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">~/OpenShift</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc version</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Open up a terminal window and change to the directory where you downloaded the
-file. Once you are in the directory, enter in the following command:</p>
+<p>You should see the following (or something similar):</p>
 </div>
-<div class="admonitionblock caution">
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Client Version: 4.6.9
+Server Version: 4.6.4 <i class="conum" data-value="1"></i><b>(1)</b>
+Kubernetes Version: v1.19.0+9f84db3</code></pre>
+</div>
+</div>
+<div class="colist arabic">
 <table>
 <tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-The name of the oc packaged archive may vary. Adjust accordingly.
-</td>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>NOTE: you will only see the <code>Server Version</code> and <code>Kubernetes Version</code> if you are currently connected to a Kubenetes or OpenShift cluster</td>
 </tr>
 </table>
 </div>
-<div class="listingblock console-input">
+<div class="paragraph">
+<p>If you see output like the above you can skip to <a href="#connect_to_the_cluster_with_cli">Connect to the OpenShift Cluster from CLI</a>.</p>
+</div>
+<div class="paragraph">
+<p>However, if the <code>oc</code> command doesn&#8217;t exist or you have an older version of the OpenShift CLI (e.g. &lt; <code>4.4.x</code>), continue following the instructions below.</p>
+</div>
+<div class="paragraph">
+<p>From top right menu bar, click to the little white question mark icon, then click to <strong>Command Line Tools</strong>:</p>
+</div>
+<div class="imageblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">tar zxvf oc-macosx.tar.gz</code></pre>
+<img src="_images/prerequisites_cli_links.png" alt="Download CLI">
 </div>
 </div>
 <div class="paragraph">
-<p>The tar.gz file name needs to be replaced by the entire name that was downloaded in the previous step.</p>
+<p>Scroll down to <code>oc - OpenShift Command Line Interface (CLI)</code> and click on the link appropriate to your OS</p>
 </div>
-<div class="paragraph">
-<p>Now you can add the OpenShift CLI tools to your PATH.</p>
-</div>
-<div class="listingblock console-input">
+<div class="imageblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export PATH=$PATH:~/openShift</code></pre>
+<img src="_images/prerequisites_cli_binaries.png" alt="CLI Binaries">
 </div>
 </div>
-<div class="paragraph">
-<p>At this point, we should have the oc tool available for use. Let&#8217;s test this
-out by printing the version of the oc command:</p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc version</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You should see the following (or something similar):</p>
-</div>
-<div class="listingblock console-output">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Client Version: openshift-clients-4.5.0-202006231303.p0-9-ge40bd2dd9</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If you get an error message, you have not updated your path correctly. If you
-need help, contact your lab instructor for assistence.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="download_and_install_openshift_cli_on_windows"><a class="anchor" href="#download_and_install_openshift_cli_on_windows"></a>Download and Install OpenShift CLI on Windows</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>The CLI for Windows is provided as a zip archive. Download and unzip the archive with a ZIP program and move the oc binary to a directory on your PATH. To check your PATH, open the Command Prompt and run:</p>
 </div>
@@ -695,11 +1087,11 @@ need help, contact your lab instructor for assistence.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Checkout this blog post if you&#8217;d like to set it up with <a href="https://www.openshift.com/blog/installing-oc-tools-windows">Powershell</a></p>
+<p>Checkout this blog post if you&#8217;d like to set it up with <a href="https://www.openshift.com/blog/installing-oc-tools-windows" target="_blank" rel="noopener">Powershell</a></p>
 </div>
 <div class="paragraph">
 <p>At this point, we should have the oc tool available for use. Let&#8217;s test this
-out by printing the version of the oc command:</p>
+out by printing the version of the <code>oc</code> command:</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -711,83 +1103,116 @@ out by printing the version of the oc command:</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Client Version: openshift-clients-4.5.0-202006231303.p0-9-ge40bd2dd9</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Client Version: 4.6.9</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If you get an error message, you have not updated your path correctly. If you
-need help, contact your lab instructor for assistence.</p>
+<p>If you get an error message, you may not have not updated your path correctly. If after checking your <code>PATH</code> you
+still cannot get the <code>oc</code> command to work, contact your lab instructor for assistence.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tab_completion"><a class="anchor" href="#tab_completion"></a>Tab Completion</h2>
+<h2 id="connect_to_the_cluster_with_cli"><a class="anchor" href="#connect_to_the_cluster_with_cli"></a>Connect to the OpenShift Cluster from CLI</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The OpenShift command line tool supports the ability to use tab completion for the popular zsh and bash shells.  This suits the needs of users using either Linux or OS X.  If you are using Microsoft Windows, never fear, we will discuss some ways to get tab completion working on that operating system as well.</p>
+<p>Once your <code>oc</code> client is setup on your Workstation (or Web Client), you can now connect to your cluster using the OpenShift CLI.</p>
 </div>
-<div class="sect2">
-<h3 id="tab_completion_on_mac_and_linux"><a class="anchor" href="#tab_completion_on_mac_and_linux"></a>Tab completion on Mac and Linux</h3>
 <div class="paragraph">
-<p>If you are on the Mac operating system, you will need to ensure that you have the <strong>bash-completion</strong> project installed. This can be accomplished using the popular brew system:</p>
+<p>From Web Console overview, go to top-right menu bar and click to the dropdown menu containing your username, then click <strong>Copy Login Command</strong>:</p>
 </div>
-<div class="listingblock console-input">
+<div class="imageblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">brew install bash-completion</code></pre>
+<img src="_images/prerequisites_copy_login_command.png" alt="Copy Login Command">
 </div>
 </div>
 <div class="paragraph">
-<p>If you&#8217;re on Linux, ensure you have <strong>bash-completion</strong> installed using your package manager (dnf, yum apt-get,&#8230;&#8203;)</p>
+<p>Click on <strong>Display Token</strong> and copy the command under <strong>Login with this token</strong>:</p>
 </div>
 <div class="paragraph">
-<p>Once <strong>bash-completion</strong> package is available in your machine, to enable tab completion in your shell, you can simply enter in the following command from your terminal</p>
+<p>Example:</p>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc completion bash &gt;&gt; oc_completion.sh
-source oc_completion.sh</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login --token=some_token --server=https://c104-e.us-east.containers.cloud.ibm.com:32208</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Alternatively, you can add this to your .bashrc file.</p>
-</div>
-<div class="paragraph">
-<p>If you are using zsh, you can run the following command:</p>
-</div>
-<div class="listingblock console-input">
+<div class="listingblock console-output">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">source &lt;(oc completion zsh)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Alternatively, you can add this to your .zshrc file.</p>
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Logged into "https://c104-e.us-east.containers.cloud.ibm.com:32208" as "%USERNAME%" using the token provided.
+
+You have access to 68 projects, the list has been suppressed. You can list all projects with 'oc projects'
+
+Using project "default".</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tab_completion_on_windows"><a class="anchor" href="#tab_completion_on_windows"></a>Tab completion on Windows</h3>
+<h3 id="working_with_proxies"><a class="anchor" href="#working_with_proxies"></a>Working with proxies</h3>
 <div class="paragraph">
-<p>For Windows users, things become a bit more tricky.  You could of course use the Linux Subsystem for Windows but you may want to consider using a combination of babun and cmder.  For a full list of instructions, you can check out the following blog post:</p>
+<p>It might happen that you&#8217;re behind a corporate proxy to access the internet. In this case, you&#8217;ll need to set
+some additional environment variables for the oc command line to work.  Select the tab appropriate to your OS below.</p>
 </div>
-<div class="ulist">
+<div class="tabset is-loading">
+<div class="ulist tabs">
 <ul>
 <li>
-<p><a href="https://blog.openshift.com/openshift-3-tab-completion-for-windows/">https://blog.openshift.com/openshift-3-tab-completion-for-windows/</a></p>
+<p><a id="tabset3_mac-os-x"></a>Mac OS X</p>
+</li>
+<li>
+<p><a id="tabset3_linux"></a>Linux</p>
+</li>
+<li>
+<p><a id="tabset3_windows"></a>Windows</p>
 </li>
 </ul>
 </div>
+<div class="content">
+<div class="tab-pane" aria-labelledby="tabset3_mac-os-x">
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Replace the proxy server with the one for your environment/machine.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export https_proxy=http://proxy-server.mycorp.com:3128/
+export HTTPS_PROXY=http://proxy-server.mycorp.com:3128/</code></pre>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="working_with_proxies"><a class="anchor" href="#working_with_proxies"></a>Working with proxies</h2>
-<div class="sectionbody">
+<div class="tab-pane" aria-labelledby="tabset3_linux">
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Replace the proxy server with the one for your environment/machine.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export https_proxy=http://proxy-server.mycorp.com:3128/
+export HTTPS_PROXY=http://proxy-server.mycorp.com:3128/</code></pre>
+</div>
+</div>
+</div>
+<div class="tab-pane" aria-labelledby="tabset3_windows">
 <div class="paragraph">
-<p>It might happen that you&#8217;re behind a corporate proxy to access the internet. In this case, you&#8217;ll need to set
-some additional environment variables for the oc command line to work.</p>
-</div>
-<div class="paragraph">
-<p><strong>Windows:</strong>
-Follow previous section&#8217;s instructions on how to set an Environment Variable on Windows. The variables you&#8217;ll need
+<p>Follow previous section&#8217;s instructions on how to set an Environment Variable on Windows. The variables you&#8217;ll need
 to set are:</p>
 </div>
 <div class="admonitionblock caution">
@@ -808,46 +1233,7 @@ Replace the proxy server with the one for your environment/machine.
 HTTPS_PROXY=http://proxy-server.mycorp.com:3128/</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p><strong>macOS:</strong></p>
 </div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-Replace the proxy server with the one for your environment/machine.
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export https_proxy=http://proxy-server.mycorp.com:3128/
-export HTTPS_PROXY=http://proxy-server.mycorp.com:3128/</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Linux:</strong></p>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-Replace the proxy server with the one for your environment/machine.
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export https_proxy=http://proxy-server.mycorp.com:3128/
-export HTTPS_PROXY=http://proxy-server.mycorp.com:3128/</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -873,6 +1259,11 @@ appropriate values:</p>
 </div>
 </div>
 </div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="prerequisites.html" class="query-params-link">Prerequisites</a></span>
+  <span class="next"><a href="projects.html" class="query-params-link">Projects</a></span>
+</nav>
 </article><aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>

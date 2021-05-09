@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Prerequisites :: OpenShift Starter Guides(Dev Mode)</title>
     <link rel="canonical" href="http://hatmarch.github.io/openshift-starter-guides/rhs-openshift-starter-guides/4.6/prerequisites.html">
-    <link rel="prev" href="common-explore.html">
-    <link rel="next" href="projects.html">
+    <link rel="prev" href="common-environment.html">
+    <link rel="next" href="workshop-setup.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
@@ -55,7 +55,7 @@
     .navbar-item {
       flex: unset;
     }
-    
+
   </style>
 
   <nav class="navbar">
@@ -75,9 +75,9 @@
 
       <div class="navbar-end">
         <div class="navbar-item" id="navbar-form-empty">
-          <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">&nbsp;<i style="color: orange;"
+          <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">
+              <i style="color: orange;"
               class="fa fa-exclamation-triangle" aria-hidden="true"></i></span>
-
           <form action="javascript:void(0);" onsubmit="gowithcluster();">
             <input size="40" id="clusterfield" type="text" placeholder="Enter Cluster Subdomain">
           </form>
@@ -129,54 +129,39 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="common-environment.html">OCP architecture</a>
   </li>
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="common-explore.html">Explore OpenShift</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="common-explore.html#the_web_console">The Web Console</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="common-explore.html#lab_guide_sync">Synchronize Lab Guide with Cluster</a>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="common-explore.html#command_line_interface">Command Line Interface</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="common-explore.html#download_openshift_cli">Download OpenShift CLI</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="common-explore.html#connect_to_the_cluster_with_cli">Connect to the OpenShift Cluster from CLI</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="common-explore.html#working_with_proxies">Working with proxies</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
   <li class="nav-item is-current-page" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="prerequisites.html">Prerequisites</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#openshift_pipelines">OpenShift Pipelines</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#install_openshift_pipelines_from_operatorhub">Install OpenShift Pipelines from OperatorHub</a>
-  </li>
-</ul>
+    <a class="nav-link" href="#provision_cluster">Provision Your Cluster</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="#github_account">GitHub Account</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="workshop-setup.html">Setup OpenShift for Workshop</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workshop-setup.html#the_web_console">Access OpenShift Web Console</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workshop-setup.html#lab_guide_sync">Synchronize Lab Guide with Cluster</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workshop-setup.html#command_line_interface">Setup Command Line Interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="workshop-setup.html#connect_to_the_cluster_with_cli">Connect to the OpenShift Cluster from CLI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="workshop-setup.html#working_with_proxies">Working with proxies</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -353,6 +338,9 @@
     <a class="nav-link" href="nationalparks-java-pipeline.html#understanding_tekton">Understanding Tekton</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="nationalparks-java-pipeline.html#openshift_pipelines">Adding OpenShift Pipeline Support to the Cluster</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="nationalparks-java-pipeline.html#create_your_pipeline">Create Your Pipeline</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -496,7 +484,7 @@
   <div class="edit-this-page"><a href="file:///workspaces/openshift-starter-guides/documentation/modules/ROOT/pages/prerequisites.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
-<article class="doc">
+<article class="doc" style="max-width: unset;">
 <h1 class="page">Prerequisites</h1>
 <div id="preamble">
 <div class="sectionbody">
@@ -520,10 +508,6 @@
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>4.6</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#openshift_pipelines">OpenShift Pipelines</a></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>1.2.x</code></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><a href="#github_account">Git</a></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>2.x</code></p></td>
 </tr>
@@ -532,45 +516,135 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="openshift_pipelines"><a class="anchor" href="#openshift_pipelines"></a>OpenShift Pipelines</h2>
+<h2 id="provision_cluster"><a class="anchor" href="#provision_cluster"></a>Provision Your Cluster</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For this lab we will use <strong>OpenShift Pipelines</strong> based on Tekton.
-OpenShift provides a marketplace of installable software packaged as <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/operator/">Kubernetes Operator</a> called <a href="https://operatorhub.io">OperatorHub</a> .
-You can add Kubernetes-native CI/CD to your cluster installing OpenShift Pipelines directly from OperatorHub embedded marketplace inside OpenShift.</p>
+<p>Depending on the type of workshop you&#8217;re participating in, you may or may not have had a cluster provisioned for you ahead of time.  Select from the tab below that best matches your workshop</p>
 </div>
-<div class="sect2">
-<h3 id="install_from_operatorhub"><a class="anchor" href="#install_from_operatorhub"></a>Install OpenShift Pipelines from OperatorHub</h3>
+<div class="tabset is-loading">
+<div class="ulist tabs">
+<ul>
+<li>
+<p><a id="tabset1_ibm-open-labs"></a>IBM Open Labs</p>
+</li>
+<li>
+<p><a id="tabset1_others"></a>Others</p>
+</li>
+</ul>
+</div>
+<div class="content">
+<div class="tab-pane" aria-labelledby="tabset1_ibm-open-labs">
 <div class="paragraph">
-<p>From the left-side menu under Administrator perspective, go to <strong>Operators</strong>&#8594; <strong>OperatorHub</strong>. In the search box, search for <em>pipelines</em>, then click to <strong>OpenShift Pipelines Operator</strong>:</p>
+<p>You will be provisioning your cluster with the "Bring Your Own Application" Lab of IBM&#8217;s Open Labs to complete this workshop.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This section assumes you have an IBM Cloud Account.  If you do not have an IBM Cloud account, instructions for obtaining a <em>free</em> IBM Cloud account (no credit card required) can be found <a href="https://www.ibm.com/au-en/cloud/free">here</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Navigate to the <a href="https://developer.ibm.com/openlabs/openshift">IBM Open Labs page for OpenShift</a></p>
+</li>
+<li>
+<p>Scroll down and click the <code>Launch Lab</code> button on the "Bring Your Own Application" Lab from the listing of labs</p>
 <div class="imageblock">
 <div class="content">
-<img src="_images/prerequisites_operatorhub.png" alt="OperatorHub">
+<img src="_images/open-labs-starter-page.png" alt="IBM Open Labs Starter Page">
 </div>
 </div>
-<div class="paragraph">
-<p>From the description view, click <strong>Install</strong> to review all installation settings.</p>
-</div>
+</li>
+<li>
+<p>If you are not already logged in, you may be prompted to log in with your IBM Cloud account (or register for a new one)</p>
+</li>
+<li>
+<p>If you have successfully signed in and authenticated, you will see a screen like the following.  (it will take a minute or two to provision the lab)</p>
 <div class="imageblock">
 <div class="content">
-<img src="_images/prerequisites_operatorhub_install_pipelines.png" alt="Install Pipelines">
+<img src="_images/provisioning.png" alt="Provisioning Lab">
 </div>
 </div>
-<div class="paragraph">
-<p>Ensure <strong>Update Channel</strong> is set to <strong>ocp-4.6</strong> , and click <strong>Install</strong> to start installing the Operator.</p>
-</div>
+</li>
+<li>
+<p>Once the lab has been provisioned, you will be redirected to the IBM Open Labs start screen, only this time the labs should show a green tick indicating that the cluster has been provisioned</p>
 <div class="imageblock">
 <div class="content">
-<img src="_images/prerequisites_operatorhub_install_operator.png" alt="Install Operator">
+<img src="_images/provisioned-lab.png" alt="Provisioned Lab">
 </div>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">IMPORTANT: Increase Cluster Lifetime</div>
 <div class="paragraph">
-<p>After few seconds, the installation should be completed with success and you can verify it looking at <strong>Status</strong> column, check if the status is <strong>Succeeded</strong>.</p>
+<p><em>Open Labs Clusters only last for <strong>1 hour</strong> by default.</em>  You will likely need <strong>2-3 hours</strong> to complete this lab in one sitting.  Thus, it&#8217;s important you follow the following instructions <strong>up to 3</strong> times to increase the lifetime of your cluster to a maximum of 4 hours</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on the increase time icon</p>
 <div class="imageblock">
 <div class="content">
-<img src="_images/prerequisites_operatorhub_pipelines_installed.png" alt="Pipelines Installed">
+<img src="_images/provisioned-lab.png" alt="Increase lifetime">
+</div>
+</div>
+</li>
+<li>
+<p>When the dialog appears, click <code>Extend</code> indicating that you&#8217;d like to extend the lifetime of the cluster by 1 hour</p>
+<div class="ulist">
+<ul>
+<li>
+<p>NOTE: 1 hour is the maximum amount of time that can be entered in the dialog</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/extend-lifetime-dialog.png" alt="Increase Lifetime Dialog">
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>You will get a prompt that the lab duration is being extended.  If successful you will see a popup on the upper right of the screen indicating that lab time has been successfully extended</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/lab-extended-success.png" alt="Lab Lifetime Increase Success">
+</div>
+</div>
+</li>
+<li>
+<p><strong>Repeat</strong> this process up to 2 more times to increase the lifetime of the lab to a maximum of 4 hours</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Next, click on the <code>Launch Lab</code> button again.  This time you will be brought to the Bring Your Own Application to Red Hat OpenShift on IBM Cloud Dashboard.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/lab-dashboard.png" alt="Lab Dashboard">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Congratulations!  You have successfully provisioned the cluster you will be using for today&#8217;s lab!  We&#8217;ll see how to access the cluster&#8217;s console in the following sections.</p>
+</div>
+</div>
+<div class="tab-pane" aria-labelledby="tabset1_others">
+<div class="paragraph">
+<p>Your cluster should have been provisioned for you ahead of time.  Contact your workshop assistants for this information.</p>
+</div>
 </div>
 </div>
 </div>
@@ -591,11 +665,10 @@ You can add Kubernetes-native CI/CD to your cluster installing OpenShift Pipelin
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="common-explore.html" class="query-params-link">Explore OpenShift</a></span>
-  <span class="next"><a href="projects.html" class="query-params-link">Projects</a></span>
+  <span class="prev"><a href="common-environment.html" class="query-params-link">OCP architecture</a></span>
+  <span class="next"><a href="workshop-setup.html" class="query-params-link">Setup OpenShift for Workshop</a></span>
 </nav>
-</article>
-<aside class="toc sidebar" data-title="Contents" data-levels="2">
+</article><aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
   </div>

@@ -55,7 +55,7 @@
     .navbar-item {
       flex: unset;
     }
-    
+
   </style>
 
   <nav class="navbar">
@@ -75,9 +75,9 @@
 
       <div class="navbar-end">
         <div class="navbar-item" id="navbar-form-empty">
-          <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">&nbsp;<i style="color: orange;"
+          <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">
+              <i style="color: orange;"
               class="fa fa-exclamation-triangle" aria-hidden="true"></i></span>
-
           <form action="javascript:void(0);" onsubmit="gowithcluster();">
             <input size="40" id="clusterfield" type="text" placeholder="Enter Cluster Subdomain">
           </form>
@@ -131,52 +131,37 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="common-explore.html">Explore OpenShift</a>
+    <a class="nav-link" href="prerequisites.html">Prerequisites</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="common-explore.html#the_web_console">The Web Console</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="common-explore.html#lab_guide_sync">Synchronize Lab Guide with Cluster</a>
-  </li>
-</ul>
+    <a class="nav-link" href="prerequisites.html#provision_cluster">Provision Your Cluster</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="common-explore.html#command_line_interface">Command Line Interface</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="common-explore.html#download_openshift_cli">Download OpenShift CLI</a>
-  </li>
-  <li class="nav-item" data-depth="3">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="common-explore.html#connect_to_the_cluster_with_cli">Connect to the OpenShift Cluster from CLI</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="common-explore.html#working_with_proxies">Working with proxies</a>
-  </li>
-</ul>
-  </li>
-</ul>
+    <a class="nav-link" href="prerequisites.html#github_account">GitHub Account</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="prerequisites.html">Prerequisites</a>
+    <a class="nav-link" href="workshop-setup.html">Setup OpenShift for Workshop</a>
 <ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workshop-setup.html#the_web_console">Access OpenShift Web Console</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workshop-setup.html#lab_guide_sync">Synchronize Lab Guide with Cluster</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workshop-setup.html#command_line_interface">Setup Command Line Interface</a>
+  </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="prerequisites.html#openshift_pipelines">OpenShift Pipelines</a>
+    <a class="nav-link" href="workshop-setup.html#connect_to_the_cluster_with_cli">Connect to the OpenShift Cluster from CLI</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="prerequisites.html#install_openshift_pipelines_from_operatorhub">Install OpenShift Pipelines from OperatorHub</a>
+    <a class="nav-link" href="workshop-setup.html#working_with_proxies">Working with proxies</a>
   </li>
 </ul>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="prerequisites.html#github_account">GitHub Account</a>
   </li>
 </ul>
   </li>
@@ -353,6 +338,9 @@
     <a class="nav-link" href="#understanding_tekton">Understanding Tekton</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#openshift_pipelines">Adding OpenShift Pipeline Support to the Cluster</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="#create_your_pipeline">Create Your Pipeline</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -496,7 +484,7 @@
   <div class="edit-this-page"><a href="file:///workspaces/openshift-starter-guides/documentation/modules/ROOT/pages/nationalparks-java-pipeline.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
-<article class="doc">
+<article class="doc" style="max-width: unset;">
 <h1 class="page">Continuous Integration and Pipelines</h1>
 <div id="preamble">
 <div class="sectionbody">
@@ -577,6 +565,53 @@ testing and deployment.</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="openshift_pipelines"><a class="anchor" href="#openshift_pipelines"></a>Adding OpenShift Pipelines Support to the Cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before we can use the Tekton Custom Resources, we need to install them onto our Cluster.  One way to do this is via an <strong>Operator</strong></p>
+</div>
+<div class="paragraph">
+<p>OpenShift provides a marketplace of installable software packaged as <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/operator/">Kubernetes Operators</a> called <a href="https://operatorhub.io">OperatorHub</a> .
+You can add Kubernetes-native CI/CD to your cluster installing OpenShift Pipelines directly from OperatorHub embedded marketplace inside OpenShift.</p>
+</div>
+<div class="sect2">
+<h3 id="install_from_operatorhub"><a class="anchor" href="#install_from_operatorhub"></a>Install OpenShift Pipelines from OperatorHub</h3>
+<div class="paragraph">
+<p>From the left-side menu under Administrator perspective, go to <strong>Operators</strong>&#8594; <strong>OperatorHub</strong>. In the search box, search for <em>pipelines</em>, then click to <strong>OpenShift Pipelines Operator</strong>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/prerequisites_operatorhub.png" alt="OperatorHub">
+</div>
+</div>
+<div class="paragraph">
+<p>From the description view, click <strong>Install</strong> to review all installation settings.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/prerequisites_operatorhub_install_pipelines.png" alt="Install Pipelines">
+</div>
+</div>
+<div class="paragraph">
+<p>Ensure <strong>Update Channel</strong> is set to <strong>ocp-4.6</strong> , and click <strong>Install</strong> to start installing the Operator.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/prerequisites_operatorhub_install_operator.png" alt="Install Operator">
+</div>
+</div>
+<div class="paragraph">
+<p>After few seconds, the installation should be completed with success and you can verify it looking at <strong>Status</strong> column, check if the status is <strong>Succeeded</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/prerequisites_operatorhub_pipelines_installed.png" alt="Pipelines Installed">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="create_your_pipeline"><a class="anchor" href="#create_your_pipeline"></a>Create Your Pipeline</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
@@ -586,7 +621,7 @@ testing and deployment.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Ensure you met all <a href="prerequisites.html" class="page">Prerequisites</a> before proceeding. <a href="prerequisites.html#openshift_pipelines" class="page">OpenShift Pipelines</a> installed in your cluster and a <a href="prerequisites.html#github_account" class="page">GitHub account</a> are required.
+Ensure you met all <a href="prerequisites.html" class="page">Prerequisites</a> before proceeding. For instance, a <a href="prerequisites.html#github_account" class="page">GitHub account</a> is required for this section
 </td>
 </tr>
 </table>
@@ -604,6 +639,9 @@ Ensure you met all <a href="prerequisites.html" class="page">Prerequisites</a> b
 <div class="ulist tabs">
 <ul>
 <li>
+<p><a id="tabset1_ibm-open-labs"></a>IBM Open Labs</p>
+</li>
+<li>
 <p><a id="tabset1_roks"></a>ROKS</p>
 </li>
 <li>
@@ -612,6 +650,13 @@ Ensure you met all <a href="prerequisites.html" class="page">Prerequisites</a> b
 </ul>
 </div>
 <div class="content">
+<div class="tab-pane" aria-labelledby="tabset1_ibm-open-labs">
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc create -f https://raw.githubusercontent.com/openshift-roadshow/nationalparks/master/pipeline/nationalparks-pipeline-all-vfs-new.yaml -n workshop</code></pre>
+</div>
+</div>
+</div>
 <div class="tab-pane" aria-labelledby="tabset1_roks">
 <div class="listingblock console-input">
 <div class="content">
@@ -877,8 +922,7 @@ spec:
   <span class="prev"><a href="nationalparks-application-health.html" class="query-params-link">Application Healthchecks</a></span>
   <span class="next"><a href="nationalparks-java-pipeline-codechanges-github.html" class="query-params-link">Automation with Pipelines</a></span>
 </nav>
-</article>
-<aside class="toc sidebar" data-title="Contents" data-levels="2">
+</article><aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
   </div>
