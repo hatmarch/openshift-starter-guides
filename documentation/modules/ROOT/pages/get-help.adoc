@@ -1,0 +1,48 @@
+= Get Help
+:navtitle: Get Lab Help
+
+If you need assistance during the lab, please get the attention of our lab assistants in the Slack channel desigated for your workshop.
+
+Depending on the type of lab you are doing, the information that the lab assistant will require will differ slightly.  Choose the tab that best matches your current situation:
+
+[tabs]
+====
+IBM Open Labs::
++
+--
+In order for the assistant to be able to look at what is going on in your cluster, you will need to provide them with API access to it.  Here is how you can do this: 
+
+. Open your link:https://console-openshift-console.%CLUSTER_SUBDOMAIN%[OpenShift Dashboard,target=_window]
+. Once the OpenShift console is open, go to the drop down menu in the upper right (where your user name is displayed) and select the `Copy login command` element.
++
+image::copy-login-command.png[]
++
+. This will (eventually) open a new window with a rather bare looking page with a link that reads 'Display Token'.  Click on this link
++
+image:display-token.png[]
++
+. Once you click on the link, you should be presented with a screen like the one below.  Copy the whole of the `oc login` command as is highlighted in the screenshot
++
+image::token-example.png[]
++
+. Paste the `oc login` command string you copied in Slack where your friendly lab assistant will be able to find it.
+
+The Lab Assistant can then use this command to log into your cluster on your behalf.
+
+--
+Others::
++
+--
+Please provide the lab assistant with your username.
+
+Your current username is %USERNAME%
+
+[.console-input]
+[source,bash,subs="+macros,+attributes"]
+----
+%USERNAME%
+----
+--
+====
+
+NOTE: Once you have provided the appropriate details to your lab team, you may close this tab.
