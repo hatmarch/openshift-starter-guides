@@ -1,0 +1,19 @@
+
+{
+    "version": "0.2.0",
+    "configurations": [
+    {
+        "name": "Antora Site Generation Debug",
+        "type": "node",
+        "request": "launch",
+        "program": "/opt/app-root/src/.npm-global/bin/gulp",
+        "stopOnEntry": false,
+        "args": [],
+        "cwd": "${workspaceRoot}",
+        "runtimeArgs": [
+            "--nolazy"
+        ],
+        "console": "internalConsole",
+    }
+    ]
+}
