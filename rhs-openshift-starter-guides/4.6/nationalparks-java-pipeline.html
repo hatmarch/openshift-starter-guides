@@ -14,41 +14,118 @@
   </head>
   <body class="article">
 
-  <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function () {
-      const urlParams = new URLSearchParams(window.location.search);
-      const clusterName = urlParams.get('CLUSTER_SUBDOMAIN');
-      if (clusterName) {
-        showCluster(clusterName);
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const clusterName = urlParams.get('CLUSTER_SUBDOMAIN');
+    if (clusterName) {
+      showCluster(clusterName);
+    }
+    else {
+      showForm();
+    }
+
+    //Handle links
+    var allQueryPramLinks = document.querySelectorAll('.query-params-link')
+    if (allQueryPramLinks) {
+      allQueryPramLinks.forEach(appendQueryStringToHref)
+    }
+
+    var pramLinks = document.querySelectorAll('.params-link')
+    if (pramLinks) {
+      pramLinks.forEach(appendQueryStringToHref)
+    }
+
+    var allNavLinks = document.querySelectorAll('.nav-link')
+    if (allNavLinks) {
+      allNavLinks.forEach(appendQueryStringToHref)
+    }
+
+    function appendQueryStringToHref(el) {
+      var desiredQueryString = new URLSearchParams(window.location.search)
+      var appendQueryString = el.classList.contains('query-params-link') ||
+        el.classList.contains('nav-link')
+
+      if( desiredQueryString.toString() && appendQueryString ) {
+        var hrefURL = new URL(el.href);
+        for( var k of desiredQueryString.keys()) {
+          hrefURL.searchParams.append(k, desiredQueryString.get(k));
+        }
+ 
+        el.href = hrefURL.toString();
       }
-      else {
-        showForm();
+    }
+
+    // refreshing links
+
+  function replaceParamsInNodes (node, key, value) {
+    if (node.parentElement) {
+      //console.log('Parent element %s', node.parentElement.nodeName)
+      if (node.parentElement.nodeName === 'code' ||
+        node.parentElement.nodeName === 'CODE') {
+        return
       }
-    });
-
-    function showCluster(clusterName) {
-      document.getElementById('navbar-form-empty').style.display = "none";
-      document.getElementById('navbar-form-filled').style.display = "flex";
-      document.getElementById('cluster_subdomain').textContent = clusterName;
     }
-
-    function showForm(clusterName) {
-      document.getElementById('navbar-form-empty').style.display = "flex";
-      document.getElementById('navbar-form-filled').style.display = "none";
+    if (node.nodeType === 3) {
+      var text = node.data
+      node.data = applyPattern(text, key, value)
     }
+    if (node.nodeType === 1 && node.nodeName !== 'SCRIPT') {
+      for (var i = 0; i < node.childNodes.length; i++) {
+        replaceParamsInNodes(node.childNodes[i], key, value)
+      }
 
-    function gowithcluster() {
-      elInput = document.getElementById('clusterfield');
-      window.location.search = ('&CLUSTER_SUBDOMAIN=' + elInput.value);
+      // handle link elements
+      if( node.href )
+      {
+        node.href = applyPattern(node.href, key, value);
+      }
     }
+  }
 
-    function recycle() {
-      const urlParams = new URLSearchParams(window.location.search);
-      urlParams.delete('CLUSTER_SUBDOMAIN');
-      window.location.search = urlParams.toString();
-    }
+  // If there are query parameters (searchparams) in the current window location then 
+  // Iterate over all them replacing text and link-hrefs that contain them
+  var params = new URLSearchParams(window.location.search);
+  for ( var k of params.keys() ) {
+    replaceParamsInNodes(document.body, k, params.get(k));
+  }
 
-  </script><header class="header">
+  function applyPattern (str, key, value) {
+    //(%25key%25|%key%) %25 is urlencode value of %
+    var pattern = '(' + '%25' + key + '%25' +
+      '|(?<!-)' + '%' + key + '%' + '(?!-))'
+    var re = new RegExp(pattern, 'gi')
+    return str.replace(re, value)
+  }
+
+  });
+
+  function showCluster(clusterName) {
+    document.getElementById('navbar-form-empty').style.display = "none";
+    document.getElementById('navbar-form-filled').style.display = "flex";
+    document.getElementById('cluster_subdomain').textContent = clusterName;
+  }
+
+  function showForm(clusterName) {
+    document.getElementById('navbar-form-empty').style.display = "flex";
+    document.getElementById('navbar-form-filled').style.display = "none";
+  }
+
+  function gowithcluster() {
+    elInput = document.getElementById('clusterfield');
+    urlParams = new URLSearchParams(window.location.search);
+    urlParams.append('CLUSTER_SUBDOMAIN', elInput.value);
+    window.location.search = urlParams;
+  }
+
+  function recycle() {
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.delete('CLUSTER_SUBDOMAIN');
+    window.location.search = urlParams;
+  }
+
+
+</script><header class="header">
   <style>
     /* override master stylesheet properties for this partial here */
 
