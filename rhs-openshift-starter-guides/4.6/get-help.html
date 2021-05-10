@@ -3,10 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Routes :: OpenShift Starter Guides(Dev Mode)</title>
-    <link rel="canonical" href="http://hatmarch.github.io/openshift-starter-guides/rhs-openshift-starter-guides/4.6/parksmap-routes.html">
-    <link rel="prev" href="parksmap-scaling.html">
-    <link rel="next" href="parksmap-logging.html">
+    <title>Get Help :: OpenShift Starter Guides(Dev Mode)</title>
+    <link rel="canonical" href="http://hatmarch.github.io/openshift-starter-guides/rhs-openshift-starter-guides/4.6/get-help.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
@@ -225,15 +223,15 @@
   </li>
 </ul>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="parksmap-routes.html">Routes</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#routes">Background: Routes</a>
+    <a class="nav-link" href="parksmap-routes.html#routes">Background: Routes</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#creating_a_route">Exercise: Creating a Route</a>
+    <a class="nav-link" href="parksmap-routes.html#creating_a_route">Exercise: Creating a Route</a>
   </li>
 </ul>
   </li>
@@ -484,181 +482,86 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">OpenShift Starter Guides</a></li>
-    <li><a href="parksmap-routes.html">Routes</a></li>
+    <li><a href="get-help.html">Get Help</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="file:///workspaces/openshift-starter-guides/documentation/modules/ROOT/pages/parksmap-routes.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="file:///workspaces/openshift-starter-guides/documentation/modules/ROOT/pages/get-help.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <article class="doc" style="max-width: unset;">
-<h1 class="page">Routes</h1>
-<div id="preamble">
-<div class="sectionbody">
+<h1 class="page">Get Help</h1>
 <div class="paragraph">
-<p>In this lab, we&#8217;re going to make our application visible to the end users, so they can access it.</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="_images/roadshow-app-architecture-parksmap-2.png" alt="Application architecture" width="800">
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="routes"><a class="anchor" href="#routes"></a>Background: Routes</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>While <strong>Services</strong> provide internal abstraction and load balancing within an
-OpenShift environment, sometimes clients (users, systems, devices, etc.)
-<strong>outside</strong> of OpenShift need to access an application. The way that external
-clients are able to access applications running in OpenShift is through the
-OpenShift routing layer. And the data object behind that is a <strong>Route</strong>.</p>
+<p>If you need assistance during the lab, please get the attention of our lab assistants in the Slack channel desigated for your workshop.</p>
 </div>
 <div class="paragraph">
-<p>The default OpenShift router (HAProxy) uses the HTTP header of the incoming
-request to determine where to proxy the connection. You can optionally define
-security, such as TLS, for the <strong>Route</strong>. If you want your <strong>Services</strong>, and, by
-extension, your <strong>Pods</strong>, to be accessible from the outside world, you need to
-create a <strong>Route</strong>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="creating_a_route"><a class="anchor" href="#creating_a_route"></a>Exercise: Creating a Route</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You may remember that when we deployed the <code>parksmap</code> application, we un-checked the checkbox to
-create a <strong>Route</strong>. Normally it would have been created for us automatically. Fortunately, creating a <strong>Route</strong> is a pretty straight-forward process.</p>
-</div>
-<div class="paragraph">
-<p>You can create a Route either from the OpenShift Console or using the <code>oc</code> CLI.  Use the tabs to choose your desired approach for adding the route.</p>
+<p>Depending on the type of lab you are doing, the information that the lab assistant will require will differ slightly.  Choose the tab that best matches your current situation:</p>
 </div>
 <div class="tabset is-loading">
 <div class="ulist tabs">
 <ul>
 <li>
-<p><a id="tabset1_openshift-console"></a>OpenShift Console</p>
+<p><a id="tabset1_ibm-open-labs"></a>IBM Open Labs</p>
 </li>
 <li>
-<p><a id="tabset1_code-oc-code-command-line"></a><code>oc</code> Command Line</p>
+<p><a id="tabset1_others"></a>Others</p>
 </li>
 </ul>
 </div>
 <div class="content">
-<div class="tab-pane" aria-labelledby="tabset1_openshift-console">
+<div class="tab-pane" aria-labelledby="tabset1_ibm-open-labs">
+<div class="paragraph">
+<p>In order for the assistant to be able to look at what is going on in your cluster, you will need to provide them with API access to it.  Here is how you can do this:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Via the <strong>Administrator Perspective</strong>, just click <strong>Networking &#8594; Routes</strong> and then the <strong>Create Route</strong> button.</p>
+<p>Open your <a href="https://console-openshift-console.%CLUSTER_SUBDOMAIN%">OpenShift Dashboard</a></p>
 </li>
 <li>
-<p>Insert <strong>parksmap</strong> in <strong>Name</strong> field.</p>
-</li>
-<li>
-<p>From <strong>Service</strong> field, select <strong>parksmap</strong>. For <strong>Target Port</strong>, select <strong>8080</strong>.</p>
-</li>
-<li>
-<p>In <strong>Security</strong> section, check <strong>Secure route</strong>. Select <strong>Edge</strong> from <strong>TLS Termination</strong> list.</p>
-</li>
-<li>
-<p>Leave all other fields blank and click <strong>Create</strong>:</p>
-<div class="imageblock text-center">
+<p>Once the OpenShift console is open, go to the drop down menu in the upper right (where your user name is displayed) and select the <code>Copy login command</code> element.</p>
+<div class="imageblock">
 <div class="content">
-<img src="_images/parksmap-route-create-1.png" alt="Create Route Part 1">
+<img src="_images/copy-login-command.png" alt="copy login command">
 </div>
 </div>
-<div class="imageblock text-center">
+</li>
+<li>
+<p>This will (eventually) open a new window with a rather bare looking page with a link that reads 'Display Token'.  Click on this link</p>
+<div class="paragraph">
+<p><span class="image"><img src="_images/display-token.png" alt="display token"></span></p>
+</div>
+</li>
+<li>
+<p>Once you click on the link, you should be presented with a screen like the one below.  Copy the whole of the <code>oc login</code> command as is highlighted in the screenshot</p>
+<div class="imageblock">
 <div class="content">
-<img src="_images/parksmap-route-create-2.png" alt="Create Route Part 2">
+<img src="_images/token-example.png" alt="token example">
 </div>
 </div>
+</li>
+<li>
+<p>Paste the <code>oc login</code> command string you copied in Slack where your friendly lab assistant will be able to find it.</p>
 </li>
 </ol>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The TLS certificate for cluster Apps domains is used by default, so you don&#8217;t need to add any certificate. In case you would like a custom domain resolving to OpenShift Nodes hosting Routers, you can add certificates also on a per-route basis.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>The Lab Assistant can then use this command to log into your cluster on your behalf.</p>
+</div>
+</div>
+<div class="tab-pane" aria-labelledby="tabset1_others">
+<div class="paragraph">
+<p>Please provide the lab assistant with your username.</p>
 </div>
 <div class="paragraph">
-<p>When creating a <strong>Route</strong>, some other options can be provided, like the hostname and path for the <strong>Route</strong> or the other TLS configurations.</p>
-</div>
-</div>
-<div class="tab-pane" aria-labelledby="tabset1_code-oc-code-command-line">
-<div class="paragraph">
-<p>We are looking to simply <code>expose</code> the <strong>Service</strong>, but first we need to verify that we don&#8217;t already have any existing <strong>Routes</strong>:</p>
+<p>Your current username is %USERNAME%</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get routes</code></pre>
-</div>
-</div>
-<div class="listingblock console-output">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">No resources found.</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Now we need to get the <strong>Service</strong> name to expose:</p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get services</code></pre>
-</div>
-</div>
-<div class="listingblock console-output">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME       CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
-parksmap   172.30.169.213   &lt;none&gt;        8080/TCP   5h</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Once we know the <strong>Service</strong> name, creating a <strong>Route</strong> is a simple one-command task:</p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc create route edge parksmap --service=parksmap</code></pre>
-</div>
-</div>
-<div class="listingblock console-output">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">route.route.openshift.io/parksmap exposed</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">%USERNAME%</code></pre>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="paragraph">
-<p>Verify the <strong>Route</strong> was created with the following command:</p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get route</code></pre>
-</div>
-</div>
-<div class="listingblock console-output">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME       HOST/PORT                            PATH      SERVICES   PORT       TERMINATION   WILDCARD
-parksmap   parksmap-workshop.%CLUSTER_SUBDOMAIN%             parksmap   8080-tcp   edge          None</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can also verify the <strong>Route</strong> in the <strong>Developer Perspective</strong> under the <strong>Resources</strong> tab for your <code>parksmap</code> deployment configuration. Also note that there is a decorator icon on the <code>parksmap</code> visualization now. If you click that, it will open the URL for your <strong>Route</strong> in a browser.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/parksmap-route-created.png" alt="Route created">
-</div>
-</div>
-<div class="paragraph">
-<p>This application is now available at the URL shown in the Developer Perspective. Click the link and you will see it.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -667,22 +570,11 @@ parksmap   parksmap-workshop.%CLUSTER_SUBDOMAIN%             parksmap   8080-tcp
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If this is the first time opening this page, the browser will ask permission to get your position. This is needed by the Frontend app to center the world map to your location, if you don&#8217;t allow it, it will just use a default location.
+Once you have provided the appropriate details to your lab team, you may close this tab and return to the previous tab which should still be at the place you were in the lab.
 </td>
 </tr>
 </table>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/parksmap-route-empty-map.png" alt="Empty map">
-</div>
-</div>
-</div>
-</div>
-<nav class="pagination">
-  <span class="prev"><a href="parksmap-scaling.html" class="query-params-link">Scaling Apps</a></span>
-  <span class="next"><a href="parksmap-logging.html" class="query-params-link">Logging</a></span>
-</nav>
 </article><aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
