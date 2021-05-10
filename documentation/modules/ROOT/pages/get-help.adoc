@@ -45,4 +45,4 @@ Your current username is %USERNAME%
 --
 ====
 
-NOTE: Once you have provided the appropriate details to your lab team, you may close this tab.
+NOTE: Once you have provided the appropriate details to your lab team, you may close this tab and return to the previous tab which should still be at the place you were in the lab.
