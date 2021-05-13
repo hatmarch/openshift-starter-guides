@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Explore OpenShift :: OpenShift Starter Guides(Dev Mode)</title>
+    <title>Explore OpenShift :: OpenShift Starter Guides</title>
     <link rel="canonical" href="http://hatmarch.github.io/openshift-starter-guides/rhs-openshift-starter-guides/4.6/common-explore.html">
     <link rel="prev" href="common-environment.html">
     <link rel="next" href="prerequisites.html">
@@ -13,86 +13,19 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body class="article">
-
-  <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function () {
-      const urlParams = new URLSearchParams(window.location.search);
-      const clusterName = urlParams.get('CLUSTER_SUBDOMAIN');
-      if (clusterName) {
-        showCluster(clusterName);
-      }
-      else {
-        showForm();
-      }
-    });
-
-    function showCluster(clusterName) {
-      document.getElementById('navbar-form-empty').style.display = "none";
-      document.getElementById('navbar-form-filled').style.display = "flex";
-      document.getElementById('cluster_subdomain').textContent = clusterName;
-    }
-
-    function showForm(clusterName) {
-      document.getElementById('navbar-form-empty').style.display = "flex";
-      document.getElementById('navbar-form-filled').style.display = "none";
-    }
-
-    function gowithcluster() {
-      elInput = document.getElementById('clusterfield');
-      window.location.search = ('&CLUSTER_SUBDOMAIN=' + elInput.value);
-    }
-
-    function recycle() {
-      const urlParams = new URLSearchParams(window.location.search);
-      urlParams.delete('CLUSTER_SUBDOMAIN');
-      window.location.search = urlParams.toString();
-    }
-
-  </script><header class="header">
-  <style>
-    /* override master stylesheet properties for this partial here */
-
-    .navbar-item {
-      flex: unset;
-    }
-    
-  </style>
-
+<header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img
           src="../../_/img/header_logo.png" height="40px" alt="Red Hat Developer Program"></a>
-      <a class="navbar-item" style="font-size: 24px; color: white"
-        href="http://hatmarch.github.io/openshift-starter-guides">OpenShift Starter Guides(Dev Mode)</a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="http://hatmarch.github.io/openshift-starter-guides">OpenShift Starter Guides</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
-
-    <div id="topbar-nav" class="navbar-menu">
-
-      <div class="navbar-end">
-        <div class="navbar-item" id="navbar-form-empty">
-          <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">&nbsp;<i style="color: orange;"
-              class="fa fa-exclamation-triangle" aria-hidden="true"></i></span>
-
-          <form action="javascript:void(0);" onsubmit="gowithcluster();">
-            <input size="40" id="clusterfield" type="text" placeholder="Enter Cluster Subdomain">
-          </form>
-        </div>
-
-        <div class="navbar-item" id="navbar-form-filled" style="display: none; text-align: right;">
-          <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">|</span>
-          <span class="navbar-text" id="cluster_subdomain"></span>
-          <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">
-            <i onclick="recycle();" style="color: green;" class="fa fa-recycle" aria-hidden="true"></i>
-          </span>
-
-        </div>
-      </div>
-
+        <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
         <a class="navbar-item" href="https://developers.redhat.com/ebooks/" target="_blank">Books</a>
         <a class="navbar-item" href="https://developers.redhat.com/cheatsheets/" target="_blank">Cheat Sheets</a>
@@ -100,20 +33,18 @@
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="#">More Tutorials</a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="https://redhat-scholars.github.io/kubernetes-tutorial/"
-              target="_blank">Kubernetes</a>
+            <a class="navbar-item" href="https://redhat-scholars.github.io/kubernetes-tutorial/" target="_blank">Kubernetes</a>
             <a class="navbar-item" href="https://redhat-scholars.github.io/istio-tutorial/" target="_blank">Istio</a>
-            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/"
-              target="_blank">Quarkus</a>
-            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/"
-              target="_blank">Knative</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/" target="_blank">Quarkus</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/" target="_blank">Knative</a>
             <a class="navbar-item" href="https://redhat-scholars.github.io/tekton-tutorial/" target="_blank">Tekton</a>
           </div>
         </div>
       </div>
     </div>
   </nav>
-</header><div class="body">
+</header>
+<div class="body">
 <div class="nav-container" data-component="rhs-openshift-starter-guides" data-version="4.6">
   <aside class="nav">
     <div class="panels">
@@ -134,13 +65,7 @@
     <a class="nav-link" href="common-explore.html">Explore OpenShift</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#the_web_console">The Web Console</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#lab_guide_sync">Synchronize Lab Guide with Cluster</a>
-  </li>
-</ul>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -509,9 +434,6 @@ perform various tasks via a browser.</p>
 <div class="ulist tabs">
 <ul>
 <li>
-<p><a id="tabset1_ibm-open-labs"></a>IBM Open Labs</p>
-</li>
-<li>
 <p><a id="tabset1_roks"></a>ROKS</p>
 </li>
 <li>
@@ -520,123 +442,6 @@ perform various tasks via a browser.</p>
 </ul>
 </div>
 <div class="content">
-<div class="tab-pane" aria-labelledby="tabset1_ibm-open-labs">
-<div class="paragraph">
-<p>If you have an IBM Cloud account, you can use the "Bring Your Own Application" Lab of IBM&#8217;s Open Labs to complete this workshop.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This section assumes you have an IBM Cloud Account.  If you do not have an IBM Cloud account, instructions for obtaining a <em>free</em> IBM Cloud account (no credit card required) can be found <a href="https://www.ibm.com/au-en/cloud/free">here</a>.
-</td>
-</tr>
-</table>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Navigate to the <a href="https://developer.ibm.com/openlabs/openshift">IBM Open Labs page for OpenShift</a></p>
-</li>
-<li>
-<p>Scroll down and click the <code>Launch Lab</code> button on the "Bring Your Own Application" Lab from the listing of labs</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/open-labs-starter-page.png" alt="IBM Open Labs Starter Page">
-</div>
-</div>
-</li>
-<li>
-<p>If you are not already logged in, you may be prompted to log in with your IBM Cloud account (or register for a new one)</p>
-</li>
-<li>
-<p>If you have successfully signed in and authenticated, you will see a screen like the following.  (it will take a minute or two to provision the lab)</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/provisioning.png" alt="Provisioning Lab">
-</div>
-</div>
-</li>
-<li>
-<p>Once the lab has been provisioned, you will be redirected to the IBM Open Labs start screen, only this time the labs should show a green tick indicating that the cluster has been provisioned</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/provisioned-lab.png" alt="Provisioned Lab">
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">IMPORTANT: Increase Cluster Lifetime</div>
-<div class="paragraph">
-<p><em>Open Labs Clusters only last for <strong>1 hour</strong> by default.</em>  You will likely need <strong>2-3 hours</strong> to complete this lab in one sitting.  Thus, it&#8217;s important you follow the following instructions <strong>up to 3</strong> times to increase the lifetime of your cluster to a maximum of 4 hours</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Click on the increase time icon</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/provisioned-lab.png" alt="Increase lifetime">
-</div>
-</div>
-</li>
-<li>
-<p>When the dialog appears, click <code>Extend</code> indicating that you&#8217;d like to extend the lifetime of the cluster by 1 hour</p>
-<div class="ulist">
-<ul>
-<li>
-<p>NOTE: 1 hour is the maximum amount of time that can be entered in the dialog</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/extend-lifetime-dialog.png" alt="Increase Lifetime Dialog">
-</div>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>You will get a prompt that the lab duration is being extended.  If successful you will see a popup on the upper right of the screen indicating that lab time has been successfully extended</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/lab-extended-success.png" alt="Lab Lifetime Increase Success">
-</div>
-</div>
-</li>
-<li>
-<p><strong>Repeat</strong> this process up to 2 more times to increase the lifetime of the lab to a maximum of 4 hours</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Next, click on the <code>Launch Lab</code> button again.  This time you will be brought to the Bring Your Own Application to Red Hat OpenShift on IBM Cloud Dashboard.</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/lab-dashboard.png" alt="Lab Dashboard">
-</div>
-</div>
-</li>
-<li>
-<p>From the Lab Dashboard, click on the <code>Quick Links and Common Commands</code> from the menu on the left and then click on the link for the OpenShift console as indicated in the following image</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/dashboard-to-cluster.png" alt="Dashboard Link to Cluster">
-</div>
-<div class="title">Figure 1. Link to OpenShift Console</div>
-</div>
-</li>
-<li>
-<p>Once you&#8217;ve clicked the link you should be presented with the Administrator View of the OpenShift Console (as follows)</p>
-</li>
-</ol>
-</div>
-</div>
 <div class="tab-pane" aria-labelledby="tabset1_roks">
 <div class="paragraph">
 <p>Login to IBM Cloud, copy this link and open in your browser:</p>
@@ -714,83 +519,6 @@ This section assumes you have an IBM Cloud Account.  If you do not have an IBM C
 <div class="imageblock">
 <div class="content">
 <img src="_images/prerequisites_overview.png" alt="Web Console Overview">
-</div>
-</div>
-<div class="sect2">
-<h3 id="lab_guide_sync"><a class="anchor" href="#lab_guide_sync"></a>Synchronize Lab Guide with Cluster</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If you see the following at the top of your lab guide:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/enter-subdomain.png" alt="enter subdomain">
-</div>
-</div>
-<div class="paragraph">
-<p>Then this means that your guide has not been "synchronized" with your OpenShift Cluster.  In that case, please follow the instructions below to connect the two.</p>
-</div>
-<div class="imageblock right">
-<div class="content">
-<img src="_images/subdomain-filled.png" alt="subdomain filled">
-</div>
-</div>
-<div class="paragraph">
-<p>Otherwise, if you header looks something like the following, you can skip to <a href="#command_line_interface">Setting up Command Line Interfaces</a></p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>While navigated to the OpenShift Console, go to the URL window of your browser.</p>
-</li>
-<li>
-<p>Select and copy (e.g. <span class="keyseq"><kbd>CMD</kbd>+<kbd>c</kbd></span> on a Mac) everything after <code><a href="https://console-openshift-console" class="bare">https://console-openshift-console</a>.</code> and before the first <code>/</code>.  This is the "cluster subdomain".  For example:</p>
-<div class="listingblock console-output">
-<div class="title">The <strong>cluster subdomain</strong> (or <code>% CLUSTER_SUBDOMAIN%</code>)</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dte-ocp46-m8lu7c-915b3b336cabec458a7c7ec2aa7c625f-0000.us-east.containers.appdomain.cloud</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Paste the <strong>cluster subdomain</strong> into the text entry box in the header:</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/pasted-cluster-subdomain.png" alt="pasted cluster subdomain">
-</div>
-</div>
-</li>
-<li>
-<p>If it looks correct, hit <kbd>Return</kbd> to refresh the lab guide.  The cluster subdomain should then represented in the header something like this:</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/subdomain-filled-2.png" alt="subdomain filled 2">
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-If you see <code>% CLUSTER_SUBDOMAIN%</code> anywhere in your lab, it likely means the subdomain needs to be reposted to the lab guide.  If this happens, just follow the process above again.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
