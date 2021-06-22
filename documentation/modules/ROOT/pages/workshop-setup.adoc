@@ -11,7 +11,7 @@ OpenShift ships with a web-based console that will allow users to perform variou
 IBM Open Labs::
 +
 --
-You can access your OpenShift cluster from the link:https://developer.ibm.com/openlabs/guide/openshift/course/bring-your-own-app-lab/01.01[IBM Open Labs Dashboard,window=_blank]
+You can access your OpenShift cluster from the link:https://developer.ibm.com/openlabs/guide/roks-ecosystem-partners/course/bring-your-own-app-lab/01.04[IBM Open Labs Dashboard^]
 
 .IBM Open Labs Dashboard: Introduction
 image::lab-dashboard.png[Lab Dashboard]
@@ -69,6 +69,7 @@ On the login screen, enter the following credentials:
 ====
 
 The first time you access the web console, you will most likely be in the Administrator perspective. If you are also the Cluster Administrator, you will be presented with an overview of the whole Cluster status:
+
 .OpenShift Web Console
 image::prerequisites_overview.png[Web Console Overview]
 
@@ -132,7 +133,7 @@ IBM Open Labs::
 --
 The Open Labs based workshop has an integrated cloud terminal that you can use for running all the CLI based commands in the lab.  
 
-. Locate the integrated cloud terminal from the link:https://developer.ibm.com/openlabs/guide/openshift/course/bring-your-own-app-lab/01.01[IBM Open Labs Dashboard,window=_blank]
+. Locate the integrated cloud terminal from the link:https://developer.ibm.com/openlabs/guide/roks-ecosystem-partners/course/bring-your-own-app-lab/01.04[IBM Open Labs Dashboard^]
 +
 .IBM Open Labs Cloud Terminal
 image::cloud-terminal.png[]
@@ -290,7 +291,7 @@ HTTPS_PROXY=http://proxy-server.mycorp.com:3128/
 If the proxy is secured, make sure to use the following URL pattern, replacing the contents with the
 appropriate values:
 
-export https_proxy=http://USERNAME:PASSOWRD@proxy-server.mycorp.com:3128/
+export https_proxy=http://USERNAME:PASSWORD@proxy-server.mycorp.com:3128/
 
 __Special Characters__: If your password contains special characters, you must replace them with ASCII codes, for example the at sign @ must be replaced by the %40 code, e.g. p@ssword = p%40ssword. 
 ====

@@ -27,9 +27,9 @@ IBM Open Labs::
 --
 You will be provisioning your cluster with the "Bring Your Own Application" Lab of IBM's Open Labs to complete this workshop.
 
-NOTE: This section assumes you have an IBM Cloud Account.  If you do not have an IBM Cloud account, instructions for obtaining a _free_ IBM Cloud account (no credit card required) can be found link:https://www.ibm.com/au-en/cloud/free[here].
+NOTE: This section assumes you have an IBM Cloud Account.  If you do not have an IBM Cloud account, instructions for obtaining a _free_ IBM Cloud account (no credit card required) can be found link:https://www.ibm.com/au-en/cloud/free[here^].
 
-. Navigate to the link:https://developer.ibm.com/openlabs/openshift[IBM Open Labs page for OpenShift]
+. Navigate to the link:https://developer.ibm.com/openlabs/roks-ecosystem-partners[IBM Open Labs page for OpenShift^]
 . Scroll down and click the `Launch Lab` button on the "Bring Your Own Application" Lab from the listing of labs
 +
 image::open-labs-starter-page.png[IBM Open Labs Starter Page]
@@ -42,25 +42,6 @@ image::provisioning.png[Provisioning Lab]
 . Once the lab has been provisioned, you will be redirected to the IBM Open Labs start screen, only this time the labs should show a green tick indicating that the cluster has been provisioned
 +
 image::provisioned-lab.png[Provisioned Lab]
-+
-.IMPORTANT: Increase Cluster Lifetime
-****
-_Open Labs Clusters only last for *1 hour* by default._  You will likely need *2-3 hours* to complete this lab in one sitting.  Thus, it's important you follow the following instructions *up to 3* times to increase the lifetime of your cluster to a maximum of 4 hours
-
-. Click on the increase time icon
-+
-image::provisioned-lab.png[Increase lifetime]
-+
-. When the dialog appears, click `Extend` indicating that you'd like to extend the lifetime of the cluster by 1 hour
-** NOTE: 1 hour is the maximum amount of time that can be entered in the dialog
-+
-image::extend-lifetime-dialog.png[Increase Lifetime Dialog]
-. You will get a prompt that the lab duration is being extended.  If successful you will see a popup on the upper right of the screen indicating that lab time has been successfully extended
-+
-image::lab-extended-success.png[Lab Lifetime Increase Success]
-+
-. *Repeat* this process up to 2 more times to increase the lifetime of the lab to a maximum of 4 hours 
-****
 +
 .  Next, click on the `Launch Lab` button again.  This time you will be brought to the Bring Your Own Application to Red Hat OpenShift on IBM Cloud Dashboard.  
 +
@@ -79,8 +60,6 @@ Your cluster should have been provisioned for you ahead of time.  Contact your w
 [#github_account]
 == GitHub Account
 
-We will demonstrate the automation capability with OpenShift Pipelines, and in order to do this, we need you to have an account on https://github.com[GitHub].
+We will demonstrate the automation capability with OpenShift Pipelines, and in order to do this, we need you to have an account on https://github.com[GitHub^].
 
-If you don't have an account on GitHub, please create one https://github.com/join[here].
-
-Also ensure link:https://git-scm.com/[Git] is available in your environment. 
+If you don't have an account on GitHub, please create one https://github.com/join[here^].
