@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Application Healthchecks :: OpenShift Starter Guides</title>
+    <title>Application Healthchecks :: OpenShift Starter Guides (Stage)</title>
     <link rel="canonical" href="http://hatmarch.github.io/openshift-starter-guides/rhs-openshift-starter-guides/4.6/nationalparks-python-application-health.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
@@ -11,196 +11,44 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body class="article">
-
-<script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const clusterName = urlParams.get('CLUSTER_SUBDOMAIN');
-    if (clusterName) {
-      showCluster(clusterName);
-    }
-    else {
-      showForm();
-    }
-
-    //Handle links
-    var allQueryPramLinks = document.querySelectorAll('.query-params-link')
-    if (allQueryPramLinks) {
-      allQueryPramLinks.forEach(appendQueryStringToHref)
-    }
-
-    var pramLinks = document.querySelectorAll('.params-link')
-    if (pramLinks) {
-      pramLinks.forEach(appendQueryStringToHref)
-    }
-
-    var allNavLinks = document.querySelectorAll('.nav-link')
-    if (allNavLinks) {
-      allNavLinks.forEach(appendQueryStringToHref)
-    }
-
-    function appendQueryStringToHref(el) {
-      var desiredQueryString = new URLSearchParams(window.location.search)
-      var appendQueryString = el.classList.contains('query-params-link') ||
-        el.classList.contains('nav-link')
-
-      if( desiredQueryString.toString() && appendQueryString ) {
-        var hrefURL = new URL(el.href);
-        for( var k of desiredQueryString.keys()) {
-          hrefURL.searchParams.append(k, desiredQueryString.get(k));
-        }
- 
-        el.href = hrefURL.toString();
-      }
-    }
-
-    // refreshing links
-
-  function replaceParamsInNodes (node, key, value) {
-    if (node.parentElement) {
-      //console.log('Parent element %s', node.parentElement.nodeName)
-      if (node.parentElement.nodeName === 'code' ||
-        node.parentElement.nodeName === 'CODE') {
-        return
-      }
-    }
-    if (node.nodeType === 3) {
-      var text = node.data
-      node.data = applyPattern(text, key, value)
-    }
-    if (node.nodeType === 1 && node.nodeName !== 'SCRIPT') {
-      for (var i = 0; i < node.childNodes.length; i++) {
-        replaceParamsInNodes(node.childNodes[i], key, value)
-      }
-
-      // handle link elements
-      if( node.href )
-      {
-        node.href = applyPattern(node.href, key, value);
-      }
-    }
-  }
-
-  // If there are query parameters (searchparams) in the current window location then 
-  // Iterate over all them replacing text and link-hrefs that contain them
-  var params = new URLSearchParams(window.location.search);
-  for ( var k of params.keys() ) {
-    replaceParamsInNodes(document.body, k, params.get(k));
-  }
-
-  function applyPattern (str, key, value) {
-    //(%25key%25|%key%) %25 is urlencode value of %
-    var pattern = '(' + '%25' + key + '%25' +
-      '|(?<!-)' + '%' + key + '%' + '(?!-))'
-    var re = new RegExp(pattern, 'gi')
-    return str.replace(re, value)
-  }
-
-  });
-
-  function showCluster(clusterName) {
-    document.getElementById('navbar-form-empty').style.display = "none";
-    document.getElementById('navbar-form-filled').style.display = "flex";
-    document.getElementById('cluster_subdomain').textContent = clusterName;
-  }
-
-  function showForm(clusterName) {
-    document.getElementById('navbar-form-empty').style.display = "flex";
-    document.getElementById('navbar-form-filled').style.display = "none";
-  }
-
-  function gowithcluster() {
-    elInput = document.getElementById('clusterfield');
-    urlParams = new URLSearchParams(window.location.search);
-    urlParams.append('CLUSTER_SUBDOMAIN', elInput.value);
-    window.location.search = urlParams;
-  }
-
-  function recycle() {
-    const urlParams = new URLSearchParams(window.location.search);
-    urlParams.delete('CLUSTER_SUBDOMAIN');
-    window.location.search = urlParams;
-  }
-
-
-</script><header class="header">
-  <style>
-    /* override master stylesheet properties for this partial here */
-
-    .navbar-item {
-      flex: unset;
-    }
-
-  </style>
-
+<header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img
           src="../../_/img/header_logo.png" height="40px" alt="Red Hat Developer Program"></a>
-      <a class="navbar-item" style="font-size: 24px; color: white"
-        href="http://hatmarch.github.io/openshift-starter-guides">OpenShift Starter Guides</a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="http://hatmarch.github.io/openshift-starter-guides">OpenShift Starter Guides (Stage)</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
-
-    <div id="topbar-nav" class="navbar-menu">
-
+        <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
-        <div class="navbar-item" id="navbar-form-empty">
-          <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">
-              <i style="color: orange;"
-              class="fa fa-exclamation-triangle" aria-hidden="true"></i></span>
-          <form action="javascript:void(0);" onsubmit="gowithcluster();">
-            <input size="40" id="clusterfield" type="text" placeholder="Enter Cluster Subdomain">
-          </form>
-        </div>
-
-        <div class="navbar-item" id="navbar-form-filled" style="display: none; text-align: right;">
-          <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">|</span>
-          <span class="navbar-text" id="cluster_subdomain"></span>
-          <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">
-            <i onclick="recycle();" style="color: green;" class="fa fa-recycle" aria-hidden="true"></i>
-          </span>
-
-        </div>
-      </div>
-
-      <div class="navbar-end">
-        <a class="navbar-item query-params-link" href="get-help.html" target="_blank">
-          <span class="navbar-text" style="margin-left: 1rem; margin-right: 1rem;">
-            <i style="color: rgb(255, 230, 0);" class="fa fa-life-ring" aria-hidden="true"></i>
-          </span>
-        Get Help!
-        </a>
-        
         <a class="navbar-item" href="https://developers.redhat.com/ebooks/" target="_blank">Books</a>
+        <a class="navbar-item" href="https://developers.redhat.com/cheatsheets/" target="_blank">Cheat Sheets</a>
         <a class="navbar-item" href="https://developers.redhat.com/events/" target="_blank">Upcoming Events</a>
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="#">More Tutorials</a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="https://redhat-scholars.github.io/kubernetes-tutorial/"
-              target="_blank">Kubernetes</a>
+            <a class="navbar-item" href="https://redhat-scholars.github.io/kubernetes-tutorial/" target="_blank">Kubernetes</a>
             <a class="navbar-item" href="https://redhat-scholars.github.io/istio-tutorial/" target="_blank">Istio</a>
-            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/"
-              target="_blank">Quarkus</a>
-            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/"
-              target="_blank">Knative</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/" target="_blank">Quarkus</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/" target="_blank">Knative</a>
             <a class="navbar-item" href="https://redhat-scholars.github.io/tekton-tutorial/" target="_blank">Tekton</a>
           </div>
         </div>
       </div>
     </div>
   </nav>
-</header><div class="body">
+</header>
+<div class="body">
 <div class="nav-container" data-component="rhs-openshift-starter-guides" data-version="4.6">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="index.html" class="query-params-link">OpenShift Starter Guides</a></h3>
+    <h3 class="title"><a href="index.html" class=" query-params-link">OpenShift Starter Guides</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -212,37 +60,46 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="prerequisites.html">Prerequisites</a>
+    <a class="nav-link" href="common-explore.html">Explore OpenShift</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="prerequisites.html#provision_cluster">Provision Your Cluster</a>
+    <a class="nav-link" href="common-explore.html#the_web_console">The Web Console</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="prerequisites.html#github_account">GitHub Account</a>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="common-explore.html#command_line_interface">Command Line Interface</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="common-explore.html#download_openshift_cli">Download OpenShift CLI</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="common-explore.html#connect_to_the_cluster_with_cli">Connect to the OpenShift Cluster from CLI</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="common-explore.html#working_with_proxies">Working with proxies</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="workshop-setup.html">Setup OpenShift for Workshop</a>
+    <a class="nav-link" href="prerequisites.html">Prerequisites</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="workshop-setup.html#the_web_console">Access OpenShift Web Console</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="workshop-setup.html#lab_guide_sync">Synchronize Lab Guide with Cluster</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="workshop-setup.html#command_line_interface">Setup Command Line Interface</a>
-  </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="workshop-setup.html#connect_to_the_cluster_with_cli">Connect to the OpenShift Cluster from CLI</a>
+    <a class="nav-link" href="prerequisites.html#openshift_pipelines">OpenShift Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="workshop-setup.html#working_with_proxies">Working with proxies</a>
+    <a class="nav-link" href="prerequisites.html#install_openshift_pipelines_from_operatorhub">Install OpenShift Pipelines from OperatorHub</a>
   </li>
 </ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="prerequisites.html#github_account">GitHub Account</a>
   </li>
 </ul>
   </li>
@@ -419,9 +276,6 @@
     <a class="nav-link" href="nationalparks-java-pipeline.html#understanding_tekton">Understanding Tekton</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="nationalparks-java-pipeline.html#openshift_pipelines">Adding OpenShift Pipeline Support to the Cluster</a>
-  </li>
-  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="nationalparks-java-pipeline.html#create_your_pipeline">Create Your Pipeline</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -565,7 +419,7 @@
   <div class="edit-this-page"><a href="file:///workspaces/openshift-starter-guides/documentation/modules/ROOT/pages/nationalparks-python-application-health.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
-<article class="doc" style="max-width: unset;">
+<article class="doc">
 <h1 class="page">Application Healthchecks</h1>
 <div class="sect1">
 <h2 id="_background_readiness_and_liveness_probes"><a class="anchor" href="#_background_readiness_and_liveness_probes"></a>Background: Readiness and Liveness Probes</h2>
@@ -680,7 +534,8 @@ configuration change.</p>
 </div>
 </div>
 </div>
-</article><aside class="toc sidebar" data-title="Contents" data-levels="2">
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
   </div>
