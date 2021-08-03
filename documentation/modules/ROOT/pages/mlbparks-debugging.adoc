@@ -94,7 +94,7 @@ Console::
 
 .NOTE
 ****
-This assumes you have `jdb` the Java command line debugger installed.  If you don't, you can see xref::mlbparks-binary-build.adoc#docker_for_maven[these instructions] for running a docker container that has Maven AND the `jdb` installed.  Once you have completed those instructions, from within the container setup port-forwarding as discussed <<Port-Forwarding through a Service to our local machine,above>>.  Then follow the instructions below from within the container.
+This assumes you have `jdb` the Java command line debugger installed.  If you don't, you can see xref::mlbparks-binary-build.adoc#docker_for_maven[these instructions,window=_blank] for running a docker container that has Maven AND the `jdb` installed.  Once you have completed those instructions, from within the container setup port-forwarding as discussed <<Port-Forwarding through a Service to our local machine,above>>.  Then follow the instructions below from within the container.
 ****
 
 . From the root of the mlbparks git repo that you cloned locally, run the following command:
